@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -9,6 +9,18 @@ const Header = ({ siteTitle }) => (
       marginBottom: `1.45rem`
     }}
   >
+    <StaticQuery
+      query={graphql`
+        query {
+          site {
+            siteMetadata {
+              description
+            }
+          }
+        }
+      `}
+      render={data => <div>{data.site.siteMetadata.description}</div>}
+    />
     <div
       style={{
         margin: `0 auto`,
