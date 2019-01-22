@@ -24,4 +24,5 @@ Direct [link](https://www.gatsbyjs.org/docs/quick-start)
 Access your site (probably localhost:8000, it will say once it's finished running `develop`) to see the "Hello World".
 
 
-
+### TypeForm
+Look into it... it could be helpful.
