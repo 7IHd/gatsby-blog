@@ -8,9 +8,10 @@ Before you start, read about the gatsby starters. They offer various boilerplate
 
 ### Install Prettier
 Prettier is super useful for formatting code. It will be very helpful keeping up the quality of the code moving forward.
-```
-npm install --only=dev
-```
+1. Make sure to download the prettier plugin for webstorm.
+2. Then go to *Languages and frameworks -> Javascript -> Prettier*.
+3. Then point to the prettier node module.
+
 Follow the following [directions](https://github.com/prettier/eslint-plugin-prettier) to have eslint and prettier play nicely.
 
 

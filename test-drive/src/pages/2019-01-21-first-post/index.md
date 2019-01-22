@@ -1,8 +1,5 @@
 ---
-path:"/first-post"
-date: "2019-01-21"
-title: "First Post"
-tags: ["this", "that"]
-excerpt: "A preview of my first post"
+path: "/blog/my-first-post"
+date: "2017-11-07"
+title: "My first blog post"
 ---
-Lorem ipsum.

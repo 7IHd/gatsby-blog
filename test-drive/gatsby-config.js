@@ -5,14 +5,14 @@ module.exports = {
     author: `@philramirez`
   },
   plugins: [
-    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages`
-      }
+        path: `${__dirname}/src/pages`,
+        name: "markdown-pages",
+      },
     },
+    `gatsby-transformer-remark`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
