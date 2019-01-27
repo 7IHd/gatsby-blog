@@ -2,15 +2,15 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 
 import Layout from "../components/layout";
-import Image from "../components/image";
 import SEO from "../components/seo";
-import Blog from "../templates/blog-template";
+import Hero from "../components/hero/hero";
 
 const IndexPage = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <Hero />
       {edges.map(edge => {
         const { frontmatter } = edge.node;
         return <div key={frontmatter.path}>{frontmatter.title}</div>;
