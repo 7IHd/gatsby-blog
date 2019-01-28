@@ -38,7 +38,7 @@ template {
   display: none;
 }
 a {
-  background-color: transparent;
+  background-color: #75715E;
   -webkit-text-decoration-skip: objects;
 }
 a:active,
@@ -63,7 +63,7 @@ h1 {
   margin: 0.67em 0;
 }
 mark {
-  background-color: #ff0;
+  background-color: #75715E;
   color: #000;
 }
 small {
@@ -197,7 +197,7 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: hsla(0, 0%, 0%, 0.8);
+  color: #272822;
   font-family: georgia, serif;
   font-weight: normal;
   word-wrap: break-word;
@@ -588,7 +588,7 @@ td:last-child {
 }
 tt,
 code {
-  background-color: hsla(0, 0%, 0%, 0.04);
+  background-color: #75715E;
   border-radius: 3px;
   font-family: 'SFMono-Regular', Consolas, 'Roboto Mono', 'Droid Sans Mono',
     'Liberation Mono', Menlo, Courier, monospace;
