@@ -26,3 +26,10 @@ Access your site (probably localhost:8000, it will say once it's finished runnin
 
 ### TypeForm
 Look into it... it could be helpful.
+
+### TODO
+1. Change hover to click event.
+2. Quadrant 1 = Title, Current Employer, [Resume](https://csi.lk/)
+3. Quadrant 2 = Contact Form
+4. Quadrant 3 = Blog Posts/Write ups on current Javascript and Linux skills
+5. Quadrant 4 = Projects

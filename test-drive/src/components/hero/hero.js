@@ -17,7 +17,7 @@ const HeroDiv = styled.div`
 const HeroH1 = styled.h1`
   position: relative;
   font-family: "Roboto", sans-serif;
-  font-size: 75px;
+  font-size: 15px;
 
   &:after,
   &:before {
@@ -45,6 +45,16 @@ const HeroH1 = styled.h1`
     border-left-width: 10px;
     bottom: -25px;
     left: -35px;
+  }
+  
+  &:hover:before {
+    border-right-width: 1px;
+    border-top-width: 1px;
+  }
+
+  &:hover:after {
+    border-bottom-width: 1px;
+    border-left-width: 1px;
   }
 
   &:hover:before,
@@ -78,9 +88,9 @@ const Hero = () => (
     render={data => (
       <HeroDiv>
         <HeroH1>
-          <HeroA href="https://www.youtube.com/watch?v=D-UmfqFjpl0" target="_blank">
+
             {data.site.siteMetadata.name}
-          </HeroA>
+
         </HeroH1>
       </HeroDiv>
     )}
