@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
+import
 
 /*
  * Source: https://codepen.io/pmalexis/pen/omvwEm
@@ -66,48 +67,6 @@ const HeroH1 = styled.h1`
   }
 `;
 
-const Quadrant1 = styled.div`
-  position: absolute;
-  border: 1px solid #272822;
-  left: 50px;
-  top: 50px;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  padding: 10px;
-`;
-
-const Quadrant2 = styled.div`
-  position: absolute;
-  border: 1px solid #272822;
-  right: 50px;
-  top: 50px;
-`;
-
-const Quadrant3 = styled.div`
-  position: absolute;
-  border: 1px solid #272822;
-  left: 50px;
-  bottom: 50px;
-`;
-
-const Quadrant4 = styled.div`
-  position: absolute;
-  border: 1px solid #272822;
-  right: 50px;
-  bottom: 50px;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-`;
-
-const HeroA = styled.a`
-  text-decoration: none;
-  color: #000;
-
-  &:hover {
-    color: #9036d4;
-  }
-`;
-
 const HeroSentence = styled.div`
   font-size: 18px;
   border: 1px solid #272822;
@@ -132,23 +91,23 @@ const Hero = () => (
     `}
     render={data => (
       <HeroDiv>
-        <Quadrant1>
-          <HeroSentence>My current title is</HeroSentence>
-          <HeroBoldDiv>Full Stack Engineer (Software Engineer)</HeroBoldDiv>
-          <HeroSentence>Currently working for</HeroSentence>
-          <HeroBoldDiv>Teralogics</HeroBoldDiv>
-          <div>You can find my resume here</div>
-          <div>
-            (which mainly just talks about JavaScript, Linux, Coffee, and
-            Running)
+        <div className="row top-xs">
+          <div className="col-xs-6">
+            <div className="box">
+              <HeroSentence>My current title is</HeroSentence>
+              <HeroBoldDiv>Full Stack Engineer (Software Engineer)</HeroBoldDiv>
+              <HeroSentence>Currently working for</HeroSentence>
+              <HeroBoldDiv>Teralogics</HeroBoldDiv>
+              <div>You can find my resume here</div>
+              <div>
+                (which mainly just talks about JavaScript, Linux, Coffee, and
+                Running)
+              </div>
+            </div>
           </div>
-        </Quadrant1>
-        <Quadrant2 />
+        </div>
         <HeroH1>{data.site.siteMetadata.name}</HeroH1>
-        <Quadrant3 />
-        <Quadrant4>
-          <footer>© {new Date().getFullYear()}</footer>
-        </Quadrant4>
+        <footer>© {new Date().getFullYear()}</footer>
       </HeroDiv>
     )}
   />

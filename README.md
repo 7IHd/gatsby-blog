@@ -27,6 +27,9 @@ Access your site (probably localhost:8000, it will say once it's finished runnin
 ### TypeForm
 Look into it... it could be helpful.
 
+### Read this
+[Styled objects](https://www.styled-components.com/docs/advanced#style-objects)
+
 ### TODO
 1. Change hover to click event.
 2. Quadrant 1 = Title, Current Employer, [Resume](https://csi.lk/)
