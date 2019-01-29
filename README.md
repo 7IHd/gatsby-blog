@@ -29,6 +29,7 @@ Look into it... it could be helpful.
 
 ### Read this
 [Styled objects](https://www.styled-components.com/docs/advanced#style-objects)
+[CSS Flexible Box Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout)
 
 ### TODO
 1. Change hover to click event.
