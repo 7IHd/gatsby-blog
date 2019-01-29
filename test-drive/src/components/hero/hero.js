@@ -12,6 +12,7 @@ const HeroDiv = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
+  border: 1px solid #272822;
 `;
 
 const HeroH1 = styled.h1`
@@ -46,23 +47,56 @@ const HeroH1 = styled.h1`
     bottom: -25px;
     left: -35px;
   }
-  
-  &:hover:before {
+
+  &:active:before {
     border-right-width: 1px;
     border-top-width: 1px;
   }
 
-  &:hover:after {
+  &:active:after {
     border-bottom-width: 1px;
     border-left-width: 1px;
   }
 
-  &:hover:before,
-  &:hover:after {
+  &:active:before,
+  &:active:after {
     width: 100vw;
     height: 100vh;
     opacity: 1;
   }
+`;
+
+const Quadrant1 = styled.div`
+  position: absolute;
+  border: 1px solid #272822;
+  left: 50px;
+  top: 50px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  padding: 10px;
+`;
+
+const Quadrant2 = styled.div`
+  position: absolute;
+  border: 1px solid #272822;
+  right: 50px;
+  top: 50px;
+`;
+
+const Quadrant3 = styled.div`
+  position: absolute;
+  border: 1px solid #272822;
+  left: 50px;
+  bottom: 50px;
+`;
+
+const Quadrant4 = styled.div`
+  position: absolute;
+  border: 1px solid #272822;
+  right: 50px;
+  bottom: 50px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
 `;
 
 const HeroA = styled.a`
@@ -72,6 +106,17 @@ const HeroA = styled.a`
   &:hover {
     color: #9036d4;
   }
+`;
+
+const HeroSentence = styled.div`
+  font-size: 18px;
+  border: 1px solid #272822;
+  margin-right: 50px;
+`;
+
+const HeroBoldDiv = styled.div`
+  border: 1px solid #272822;
+  font-weight: bold;
 `;
 
 const Hero = () => (
@@ -87,11 +132,23 @@ const Hero = () => (
     `}
     render={data => (
       <HeroDiv>
-        <HeroH1>
-
-            {data.site.siteMetadata.name}
-
-        </HeroH1>
+        <Quadrant1>
+          <HeroSentence>My current title is</HeroSentence>
+          <HeroBoldDiv>Full Stack Engineer (Software Engineer)</HeroBoldDiv>
+          <HeroSentence>Currently working for</HeroSentence>
+          <HeroBoldDiv>Teralogics</HeroBoldDiv>
+          <div>You can find my resume here</div>
+          <div>
+            (which mainly just talks about JavaScript, Linux, Coffee, and
+            Running)
+          </div>
+        </Quadrant1>
+        <Quadrant2 />
+        <HeroH1>{data.site.siteMetadata.name}</HeroH1>
+        <Quadrant3 />
+        <Quadrant4>
+          <footer>© {new Date().getFullYear()}</footer>
+        </Quadrant4>
       </HeroDiv>
     )}
   />
