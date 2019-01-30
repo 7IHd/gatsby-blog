@@ -3,14 +3,14 @@ import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Hero from "../components/hero/hero";
+import InfoCard from "../components/cards/InfoCard";
 
 const IndexPage = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <Hero />
+      <InfoCard />
       {edges.map(edge => {
         const { frontmatter } = edge.node;
         return <div key={frontmatter.path}>{frontmatter.title}</div>;
