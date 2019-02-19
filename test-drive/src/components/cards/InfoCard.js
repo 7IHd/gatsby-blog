@@ -28,7 +28,7 @@ const InfoCard = () => (
       query InfoCardQuery {
         site {
           siteMetadata {
-            name
+            title
           }
         }
       }
@@ -36,7 +36,7 @@ const InfoCard = () => (
     render={data => (
       <InfoCardWrapper>
         <InfoCardDiv>
-          <InfoCardSpan>{data.site.siteMetadata.name}</InfoCardSpan>
+          <InfoCardSpan>{data.site.siteMetadata.title}</InfoCardSpan>
         </InfoCardDiv>
       </InfoCardWrapper>
     )}

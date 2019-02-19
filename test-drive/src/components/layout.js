@@ -6,8 +6,9 @@ import styled from "styled-components";
 const LayoutBody = styled.div`
   margin: 0;
   padding: 0;
-  background: #FFF;
-  overflow: hidden;
+  background: #343D46;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Layout = ({ children }) => (

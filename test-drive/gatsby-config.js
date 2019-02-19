@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Test drive`,
+    test: `testing`,
     description: `Taking gatsby for a test drive.`,
     name: `Phil Ramirez`,
     author: `@ramirezp6856`
@@ -41,6 +42,14 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`
+      }
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        typeName: `Json`,
+        path: `src/components`
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
