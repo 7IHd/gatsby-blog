@@ -8,7 +8,11 @@ const LayoutBody = styled.div`
   padding: 0;
   background: #343D46;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: stretch;
+  height: 100%;
+  min-height: 100%;
 `;
 
 const Layout = ({ children }) => (
