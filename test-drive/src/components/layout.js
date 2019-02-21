@@ -4,15 +4,12 @@ import { StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
 const LayoutBody = styled.div`
-  margin: 0;
-  padding: 0;
-  background: #343D46;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: stretch;
-  height: 100%;
-  min-height: 100%;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #343d46;
+  color: #d8dee9;
+  font-weight: 400;
 `;
 
 const Layout = ({ children }) => (
@@ -26,9 +23,7 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
-        <LayoutBody>{children}</LayoutBody>
-    )}
+    render={data => <LayoutBody>{children}</LayoutBody>}
   />
 );
 
