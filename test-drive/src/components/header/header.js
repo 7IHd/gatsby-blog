@@ -11,15 +11,14 @@ import PropTypes from "prop-types";
 // - https://www.narative.co/
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: flex-start;
+  display: block;
+  max-width: 1220px;
+  margin: 0px auto;
+  padding: 0px 4rem;
 `;
 
 const Logo = styled.div`
   display: flex;
-  border: 1px solid #fff;
 `;
 
 // Read more: https://blog.lftechnology.com/using-svg-icons-components-in-react-44fbe8e5f91
@@ -39,7 +38,12 @@ const Header = ({ data }) => {
     <Container>
       <Logo>
         <svg xmlns="http://www.w3.org/2000/svg">
-          <LogoPath d="M 0.0065918 0 V 8.62637 L 22.8961 24.7297 L 22.8948 16.0316 L 0.0065918 0 Z" />
+          /* _ */
+          <LogoPath d="M0 16H17.9091V20.4595H0V30Z" />
+          /* | */
+          <LogoPath d="M0.00598145 30.7176L7.01982 30.7873L7.01897 12.2965L0.00598145 10.3745V24.7176Z" />
+          /* \ */
+          <LogoPath d="M 0.0065918 0 V 8.62637 L 8.8961 16.7297 L 18.8948 17.0316 L 0.0065918 0 Z" />
         </svg>
       </Logo>
       {_getHeaderElements(data)}
