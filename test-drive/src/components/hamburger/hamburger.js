@@ -1,8 +1,53 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
-const Buns = styled.div`
-  position: absolute;
+const rotateToNinetyAnimation = keyframes`
+  from {
+    transform: rotate(0deg);
+    background-color: #FFF;
+  }
+
+  to {
+    transform: rotate(90deg);
+    background-color: crimson;
+  }
+`;
+
+const rotateToZeroAnimation = keyframes`
+  from {
+    transform: rotate(90deg);
+    background-color: crimson;
+  }
+
+  to {
+    transform: rotate(0deg);
+    background-color: #FFF;
+  }
+`;
+
+const animateToNinety = css`
+  animation: ${rotateToNinetyAnimation} 0.15s linear;
+  transform: rotate(90deg);
+`;
+
+const animateToZero = css`
+  animation: ${rotateToZeroAnimation} 0.15s linear;
+  transform: rotate(0deg);
+`;
+
+const Innards = styled.span`
+  display: block;
+  height: 1px;
+  background-color: #fff;
+  cursor: pointer;
+  margin-top: 8px;
+  ${props => (props.isActive ? animateToNinety : animateToZero)}
+`;
+
+const Buns = styled.button`
+  background-color: transparent;
+  border-style: none;
+  outline: none;
   right: 5rem;
   top: 3.2rem;
   z-index: 100;
@@ -11,34 +56,25 @@ const Buns = styled.div`
   cursor: pointer;
 `;
 
-const animateLettuce = keyframes`
-0% { background-color: #FFF }
-50% { 
-transform: translateY(9px);
- background-color: #FFF}
-80% {
-transfrom: translateY(5px);
- background-color: #FFF}
-100% { 
-transform: translateY(0);
-background-color: crimson
-}
-`;
+export default class extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isActive: false
+    };
+    this.click = this.click.bind(this);
+  }
 
-const Lettuce = styled.span`
-  display: block;
-  height: 1px;
-  background-color: #fff;
-  cursor: pointer;
-  margin-top: 8px;
-  animation: ${animateLettuce} 0.6s linear 1 both;
-`;
+  click = () => {
+    this.setState({ isActive: !this.state.isActive });
+  };
 
-export default class Hamburger extends React.Component {
   render() {
     return (
-      <Buns>
-        <Lettuce />
+      <Buns onClick={this.click}>
+        <Innards isActive={this.state.isActive} />
+        <Innards isActive={this.state.isActive} />
+        <Innards isActive={this.state.isActive} />
       </Buns>
     );
   }

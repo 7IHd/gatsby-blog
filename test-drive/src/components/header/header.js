@@ -1,7 +1,7 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import Logo from "../logo/logo";
-import Nav from "../nav/nav";
+import NavList from "../nav/nav";
 import Hamburger from "../hamburger/hamburger";
 // Sources:
 // - https://dev.to/emmawedekind/reading-data-from-a-json-file-with-gatsby--graphql-58a2
@@ -9,6 +9,7 @@ import Hamburger from "../hamburger/hamburger";
 // - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 // - https://labs.voronianski.com/oceanic-next-color-scheme/
 // - https://www.narative.co/
+// - https://codeburst.io/animating-react-components-with-css-and-styled-components-cc5a0585f105
 
 const Container = styled.div`
   display: block;
@@ -33,16 +34,65 @@ const Kimono = styled.div`
   justify-content: space-between;
 `;
 
+const displayNav = keyframes`
+  from {
+    visibility: hidden;
+  }
+
+  to {
+    visibility: visible;
+  }
+`;
+
+const hideNav = keyframes`
+  from {
+    visibility: visible;
+  }
+
+  to {
+    visibility: hidden;
+  }
+`;
+
+
+const animateToDisplay = css`
+  animation: ${displayNav} 0.15s linear;
+  visibility: visible;
+`;
+
+const animateToHide = css`
+  animation: ${hideNav} 0.15s linear;
+  visibility: hidden;
+`;
+
+const Navigation = styled.nav`
+  align-items: center;
+  display: flex;
+  ${props => (props.isActive ? animateToDisplay : animateToHide)}
+`;
+
 export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isNavActive: false
+    };
+  }
+
+  toggleNav = () => {
+    this.setState({isNavActive: !this.state.isNavActive})
+  };
+
   render() {
+    const { isNavActive } = this.state;
     return (
       <Container>
         <Wrapper>
           <Kimono>
             <Logo />
-            <Nav />
+            <Navigation isActive={isNavActive}> <NavList/> </Navigation>
+            <div onClick={this.toggleNav}><Hamburger /></div>
           </Kimono>
-          <Hamburger />
         </Wrapper>
       </Container>
     );

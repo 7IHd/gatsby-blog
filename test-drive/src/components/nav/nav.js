@@ -12,13 +12,6 @@ import PropTypes from "prop-types";
 // - https://labs.voronianski.com/oceanic-next-color-scheme/
 // - https://www.narative.co/
 
-const Navigation = styled.nav`
-  display: flex;
-  align-items: center;
-  margin: 0px;
-  padding: 0px;
-`;
-
 const NavList = styled.ul`
   list-style: none;
 `;
@@ -42,7 +35,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   display: block;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1rem;
   //opacity: 0;
 
   &:before {
@@ -97,12 +90,11 @@ const StyledLink = styled(Link)`
   }
 `;
 
-
 function _getNavItems(data) {
   const navItemArray = [];
   data.allHeaderJson.edges.forEach(element =>
     navItemArray.push(
-      <NavItem>
+      <NavItem key={element.node.value}>
         <StyledLink to={element.node.path}>{element.node.value}</StyledLink>
       </NavItem>
     )
@@ -111,11 +103,7 @@ function _getNavItems(data) {
 }
 
 const Nav = ({ data }) => {
-  return (
-    <Navigation>
-      <NavList>{_getNavItems(data)}</NavList>
-    </Navigation>
-  );
+  return <NavList>{_getNavItems(data)}</NavList>;
 };
 
 export default props => (

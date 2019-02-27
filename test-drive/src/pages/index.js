@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 
 import Layout from "../components/layout";
@@ -24,6 +24,19 @@ const Wrapper = styled.div`
   padding: 0px 0px 100px;
 `;
 
+const StyledLink = styled(Link)`
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Roboto Cn", sans-serif;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.8rem;
+  //opacity: 0;
+`;
+
+
 const IndexPage = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
   return (
@@ -34,7 +47,7 @@ const IndexPage = ({ data }) => {
         <Wrapper>
           {edges.map(edge => {
             const { frontmatter } = edge.node;
-            return <div key={frontmatter.path}>{frontmatter.title}</div>;
+            return <StyledLink key={frontmatter.path} to={frontmatter.path}>{frontmatter.title}</StyledLink>;
           })}
         </Wrapper>
       </Container>
