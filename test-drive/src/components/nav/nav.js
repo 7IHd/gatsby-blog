@@ -3,6 +3,7 @@
 import React from "react";
 import { StaticQuery, graphql, Link } from "gatsby";
 import styled from "styled-components";
+import posed from "react-pose";
 import PropTypes from "prop-types";
 
 // Sources:
@@ -12,82 +13,17 @@ import PropTypes from "prop-types";
 // - https://labs.voronianski.com/oceanic-next-color-scheme/
 // - https://www.narative.co/
 
-const NavList = styled.ul`
-  list-style: none;
-`;
-
-const NavItem = styled.li`
-  display: inline-block;
-  margin-right: 60px;
-  flex-basis: 20%;
-  height: 100%;
-  overflow: hidden;
-`;
-
-const StyledLink = styled(Link)`
-  position: relative;
-  top: 46%;
+const StyledNavLink = styled(Link)`
+  display: flex;
+  height: 40px;
+  -webkit-box-align: center;
+  align-items: center;
   color: #fff;
-  text-transform: uppercase;
-  font-family: "Roboto Cn", sans-serif;
   font-weight: 300;
-  letter-spacing: 4px;
+  font-size: 18px;
+  text-transform: uppercase;
   text-decoration: none;
-  display: block;
-  text-align: center;
-  font-size: 1rem;
-  //opacity: 0;
-
-  &:before {
-    content: "";
-    width: 70px;
-    height: 2px;
-    background-color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    z-index: 100;
-    -webkit-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    transform: translateX(-100%);
-    opacity: 0;
-    -webkit-transition: all 0.2s linear;
-    transition: all 0.2s linear;
-  }
-
-  &:after {
-    content: attr(data-content);
-    font-size: 0.7rem;
-    -webkit-transition: all 0.2s linear;
-    transition: all 0.2s linear;
-    opacity: 0;
-    position: absolute;
-    z-index: 100;
-    color: #fff;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    left: 0;
-    right: 0;
-    bottom: -50px;
-    text-transform: none;
-    font-family: "Open sans", sans-serif;
-    font-weight: 300;
-    font-style: italic;
-    letter-spacing: 0;
-  }
-
-  &:hover:before,
-  &:hover:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: crimson;
-    left: 0;
-    transform: scaleX(0);
-    transition: all 0.5s;
-  }
+  font-family: "Roboto Cn", sans-serif;
 `;
 
 function _getNavItems(data) {
@@ -95,36 +31,97 @@ function _getNavItems(data) {
   data.allHeaderJson.edges.forEach(element =>
     navItemArray.push(
       <NavItem key={element.node.value}>
-        <StyledLink to={element.node.path}>{element.node.value}</StyledLink>
+        <StyledNavLink to={element.node.path}>
+          {element.node.value}
+        </StyledNavLink>
       </NavItem>
     )
   );
   return navItemArray;
 }
 
-const Nav = ({ data }) => {
-  return <NavList>{_getNavItems(data)}</NavList>;
+const navListProps = {
+  visible: {
+    opacity: 1,
+    delayChildren: 200,
+    staggerChildren: 60,
+    staggerDirection: -1
+  },
+  hidden: {
+    opacity: 0,
+    delayChildren: 200,
+    staggerChildren: 60,
+    staggerDirection: 1
+  }
 };
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query NavQuery {
-        allHeaderJson {
-          edges {
-            node {
-              value
-              path
+const NavList = styled(posed.ul(navListProps))`
+  list-style: none;
+  display: block;
+  margin: 0;
+`;
+
+const Navigator = ({ data, isNavActive }) => {
+  return (
+    <NavList pose={isNavActive ? "visible" : "hidden"}>
+      {_getNavItems(data)}
+    </NavList>
+  );
+};
+
+const navItemProps = {
+  hoverable: true,
+  hover: {
+    opacity: 0.6
+  },
+  visible: {
+    opacity: 1,
+    applyAtStart: {
+      y: 0
+    }
+  },
+  hidden: {
+    opacity: 0,
+    applyAtEnd: {
+      y: -300
+    }
+  }
+};
+
+const NavItem = styled(posed.li(navItemProps))`
+  margin-right: 60px;
+  display: inline-block;
+
+  &:last-child {
+    margin-right: 40px;
+  }
+`;
+
+export default class Nav extends React.Component {
+  render() {
+    const { isNavActive } = this.props;
+
+    return (
+      <StaticQuery
+        query={graphql`
+          query NavQuery {
+            allHeaderJson {
+              edges {
+                node {
+                  value
+                  path
+                }
+              }
             }
           }
-        }
-      }
-    `}
-    render={data => <Nav data={data} {...props} />}
-  />
-);
+        `}
+        render={data => <Navigator data={data} isNavActive={isNavActive} />}
+      />
+    );
+  }
+}
 
-Nav.propTypes = {
+Navigator.propTypes = {
   data: PropTypes.shape({
     allHeaderJson: PropTypes.shape({
       edges: PropTypes.arrayOf(

@@ -15,9 +15,9 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  height: calc(100vh - 140px);
-  min-height: 440px;
   position: relative;
+  z-index: 100;
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
