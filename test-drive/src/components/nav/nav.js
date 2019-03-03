@@ -16,8 +16,6 @@ import PropTypes from "prop-types";
 const StyledNavLink = styled(Link)`
   display: flex;
   height: 40px;
-  -webkit-box-align: center;
-  align-items: center;
   color: #fff;
   font-weight: 300;
   font-size: 18px;
@@ -43,14 +41,14 @@ function _getNavItems(data) {
 const navListProps = {
   visible: {
     opacity: 1,
-    delayChildren: 200,
-    staggerChildren: 60,
+    delayChildren: 0,
+    staggerChildren: 300,
     staggerDirection: -1
   },
   hidden: {
     opacity: 0,
-    delayChildren: 200,
-    staggerChildren: 60,
+    delayChildren: 0,
+    staggerChildren: 150,
     staggerDirection: 1
   }
 };
@@ -72,6 +70,7 @@ const Navigator = ({ data, isNavActive }) => {
 const navItemProps = {
   hoverable: true,
   hover: {
+    x: 2,
     opacity: 0.6
   },
   visible: {
@@ -97,7 +96,7 @@ const NavItem = styled(posed.li(navItemProps))`
   }
 `;
 
-export default class Nav extends React.Component {
+class Nav extends React.Component {
   render() {
     const { isNavActive } = this.props;
 
@@ -135,3 +134,5 @@ Navigator.propTypes = {
     }).isRequired
   }).isRequired
 };
+
+export default Nav;

@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
+import { PageLayout } from "@auth0/cosmos";
 import styled from "styled-components";
 
-const LayoutBody = styled.div`
-  position: relative;
+const StyledPageLayout = styled(PageLayout)`
   min-height: 100vh;
   overflow-x: hidden;
   background: #343d46;
@@ -23,7 +23,10 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => <LayoutBody>{children}</LayoutBody>}
+    render={data =>
+      <StyledPageLayout>
+          {children}
+      </StyledPageLayout>}
   />
 );
 

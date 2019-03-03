@@ -1,54 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { PageLayout, StackLayout } from "@auth0/cosmos";
 import posed from "react-pose";
 import Logo from "../logo/logo";
 import NavList from "../nav/nav";
-// Sources:
-// - https://dev.to/emmawedekind/reading-data-from-a-json-file-with-gatsby--graphql-58a2
-// - https://www.gatsbyjs.org/docs/static-query/
-// - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-// - https://labs.voronianski.com/oceanic-next-color-scheme/
-// - https://www.narative.co/
-// - https://codeburst.io/animating-react-components-with-css-and-styled-components-cc5a0585f105
-
-const Container = styled.div`
-  display: block;
-  margin: 0px;
-  padding: 0px;
-`;
-
-const Wrapper = styled.div`
-  max-width: 1220px;
-  display: block;
-  margin: 0px auto;
-  padding: 0px 4rem;
-  background: transparent;
-`;
-
-const Kimono = styled.div`
-  position: relative;
-  z-index: 100;
-  padding-top: 100px;
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-`;
-
-const Navigation = styled.nav`
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-`;
 
 const navButtonProps = {
   visible: {
-    delayChildren: 200,
-    staggerChildren: 60,
+    delayChildren: 0,
+    staggerChildren: 100,
     staggerDirection: -1
   },
   hidden: {
-    delayChildren: 200,
-    staggerChildren: 60,
+    delayChildren: 0,
+    staggerChildren: 50,
     staggerDirection: -1
   }
 };
@@ -68,27 +33,39 @@ const NavButton = styled(posed.button(navButtonProps))`
 const navButtonBarProps = {
   visible: {
     rotate: 90,
-    width: "10%",
-    height: "5px"
+    width: "20%",
+    height: "0.25em",
+    "border-radius": "50px"
   },
   hidden: {
     rotate: 0,
-    height: "1px",
-    applyAtStart: {
-      width: "100%"
-    }
+    height: "0.05em",
+    width: "100%"
   }
 };
 
 const NavButtonBar = styled(posed.span(navButtonBarProps))`
   display: block;
-  height: 1px;
   background-color: #fff;
   cursor: pointer;
   margin-bottom: 6px;
 `;
 
-export default class Header extends React.Component {
+const StyledHeader = styled(PageLayout.Header)`
+  max-width: 1220px;
+  width: 100%;
+  margin: 0px auto;
+  padding: 0px 4rem;
+  background: transparent;
+  z-index: 100;
+  padding-top: 100px;
+`;
+
+const StyledStackLayout = styled(StackLayout)`
+  flex-wrap: nowrap;
+`;
+
+class Header extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -103,24 +80,40 @@ export default class Header extends React.Component {
   render() {
     const { isNavActive } = this.state;
     return (
-      <Container>
-        <Wrapper>
-          <Kimono>
-            <Logo />
-            <Navigation>
-              <NavList isNavActive={isNavActive} />
-              <NavButton
-                onClick={this.toggleNav}
-                pose={isNavActive ? "visible" : "hidden"}
-              >
-                <NavButtonBar />
-                <NavButtonBar />
-                <NavButtonBar />
-              </NavButton>
-            </Navigation>
-          </Kimono>
-        </Wrapper>
-      </Container>
+      <StyledHeader>
+        <StyledStackLayout
+          gutter="none"
+          alignment="start"
+          distribution="spaceBetween"
+        >
+          <Logo />
+          <StyledStackLayout
+            gutter="none"
+            alignment="start"
+            distribution="spaceBetween"
+          >
+            <NavList isNavActive={isNavActive} />
+            <NavButton
+              onClick={this.toggleNav}
+              pose={isNavActive ? "visible" : "hidden"}
+            >
+              <NavButtonBar />
+              <NavButtonBar />
+              <NavButtonBar />
+            </NavButton>
+          </StyledStackLayout>
+        </StyledStackLayout>
+      </StyledHeader>
     );
   }
 }
+
+export default Header;
+
+// Sources:
+// - https://dev.to/emmawedekind/reading-data-from-a-json-file-with-gatsby--graphql-58a2
+// - https://www.gatsbyjs.org/docs/static-query/
+// - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+// - https://labs.voronianski.com/oceanic-next-color-scheme/
+// - https://www.narative.co/
+// - https://codeburst.io/animating-react-components-with-css-and-styled-components-cc5a0585f105
