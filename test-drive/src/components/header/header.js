@@ -11,8 +11,7 @@ const StyledHeader = styled(PageLayout.Header)`
   margin: 0px auto;
   padding: 0px 4rem;
   background: transparent;
-  z-index: 100;
-  padding-top: 100px;
+  padding-top: 50px;
 `;
 
 const StyledStackLayout = styled(StackLayout)`

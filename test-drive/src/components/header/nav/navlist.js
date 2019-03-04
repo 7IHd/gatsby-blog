@@ -3,6 +3,19 @@ import { StaticQuery, graphql, Link } from "gatsby";
 import styled from "styled-components";
 import posed from "react-pose";
 import PropTypes from "prop-types";
+import ContactModal from "../../modal/contact";
+
+const StyledContact = styled.span`
+  display: flex;
+  height: 40px;
+  color: #fff;
+  font-weight: 300;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: "Roboto Cn", sans-serif;
+  cursor: pointer;
+`;
 
 const StyledNavLink = styled(Link)`
   display: flex;
@@ -70,18 +83,21 @@ const navItemProps = {
   }
 };
 
-const NavItem = styled(posed.li(navItemProps))`
-  margin-right: 60px;
-  display: inline-block;
-
-  &:last-child {
-    margin-right: 40px;
-  }
-`;
+const NavItem = posed.li(navItemProps);
 
 export default class NavList extends React.Component {
+  constructor() {
+    super();
+    this.state = { open: false };
+  }
+
+  setDialogState = () => {
+    this.setState({ open: !this.state.open });
+  };
+
   render() {
-    const { isNavActive } = this.props;
+    const { isNavActive } = this.props,
+      { open } = this.state;
 
     return (
       <StaticQuery
@@ -98,19 +114,23 @@ export default class NavList extends React.Component {
           }
         `}
         render={data => (
-          <StaticQueryNavList data={data} isNavActive={isNavActive} />
+          <Navlist pose={isNavActive ? "visible" : "hidden"}>
+            <StaticQueryNavList data={data} />
+            <NavItem>
+              <StyledContact onClick={this.setDialogState}>
+                Contact
+              </StyledContact>
+            </NavItem>
+            <ContactModal open={open} onContactClick={this.setDialogState} />
+          </Navlist>
         )}
       />
     );
   }
 }
 
-const StaticQueryNavList = ({ data, isNavActive }) => {
-  return (
-    <Navlist pose={isNavActive ? "visible" : "hidden"}>
-      {_getNavItems(data)}
-    </Navlist>
-  );
+const StaticQueryNavList = ({ data }) => {
+  return <span>{_getNavItems(data)}</span>;
 };
 
 StaticQueryNavList.propTypes = {

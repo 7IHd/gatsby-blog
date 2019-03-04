@@ -2,9 +2,5 @@
 	{
 		"value": "About",
 		"path": "/about"
-	},
-	{
-		"value": "Contact",
-		"path": "/hey"
 	}
 ]

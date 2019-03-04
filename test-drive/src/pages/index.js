@@ -8,6 +8,7 @@ import SplitText from "react-pose-text";
 import styled from "styled-components";
 import pose from "react-pose";
 import Foreground from "../components/sections/foreground";
+import Footer from "../components/footer/footer";
 
 const articleProps = {
   hoverable: true,
@@ -109,6 +110,7 @@ const IndexPage = ({ data }) => {
         </RowLayout>
         <Foreground />
       </StyledContent>
+      <Footer />
     </Layout>
   );
 };
