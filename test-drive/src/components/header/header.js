@@ -15,6 +15,10 @@ const StyledHeader = styled(PageLayout.Header)`
   padding-top: 100px;
 `;
 
+const StyledStackLayout = styled(StackLayout)`
+  flex-wrap: nowrap;
+`;
+
 export default class Header extends React.Component {
   constructor() {
     super();
@@ -31,13 +35,13 @@ export default class Header extends React.Component {
     const { isNavActive } = this.state;
     return (
       <StyledHeader>
-        <StackLayout
+        <StyledStackLayout
           gutter="none"
           alignment="start"
           distribution="spaceBetween"
         >
           <Logo />
-          <StackLayout
+          <StyledStackLayout
             gutter="none"
             alignment="start"
             distribution="spaceBetween"
@@ -48,8 +52,8 @@ export default class Header extends React.Component {
               onNavButtonClick={this.toggleNav}
               isNavActive={isNavActive}
             />
-          </StackLayout>
-        </StackLayout>
+          </StyledStackLayout>
+        </StyledStackLayout>
       </StyledHeader>
     );
   }
