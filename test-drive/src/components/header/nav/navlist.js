@@ -1,17 +1,8 @@
-// Sources
-// - https://codepen.io/anon/pen/jdgNxZ?editors=1100
 import React from "react";
 import { StaticQuery, graphql, Link } from "gatsby";
 import styled from "styled-components";
 import posed from "react-pose";
 import PropTypes from "prop-types";
-
-// Sources:
-// - https://dev.to/emmawedekind/reading-data-from-a-json-file-with-gatsby--graphql-58a2
-// - https://www.gatsbyjs.org/docs/static-query/
-// - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-// - https://labs.voronianski.com/oceanic-next-color-scheme/
-// - https://www.narative.co/
 
 const StyledNavLink = styled(Link)`
   display: flex;
@@ -53,19 +44,11 @@ const navListProps = {
   }
 };
 
-const NavList = styled(posed.ul(navListProps))`
+const Navlist = styled(posed.ul(navListProps))`
   list-style: none;
   display: block;
   margin: 0;
 `;
-
-const Navigator = ({ data, isNavActive }) => {
-  return (
-    <NavList pose={isNavActive ? "visible" : "hidden"}>
-      {_getNavItems(data)}
-    </NavList>
-  );
-};
 
 const navItemProps = {
   hoverable: true,
@@ -96,7 +79,7 @@ const NavItem = styled(posed.li(navItemProps))`
   }
 `;
 
-class Nav extends React.Component {
+export default class NavList extends React.Component {
   render() {
     const { isNavActive } = this.props;
 
@@ -114,13 +97,23 @@ class Nav extends React.Component {
             }
           }
         `}
-        render={data => <Navigator data={data} isNavActive={isNavActive} />}
+        render={data => (
+          <StaticQueryNavList data={data} isNavActive={isNavActive} />
+        )}
       />
     );
   }
 }
 
-Navigator.propTypes = {
+const StaticQueryNavList = ({ data, isNavActive }) => {
+  return (
+    <Navlist pose={isNavActive ? "visible" : "hidden"}>
+      {_getNavItems(data)}
+    </Navlist>
+  );
+};
+
+StaticQueryNavList.propTypes = {
   data: PropTypes.shape({
     allHeaderJson: PropTypes.shape({
       edges: PropTypes.arrayOf(
@@ -134,5 +127,3 @@ Navigator.propTypes = {
     }).isRequired
   }).isRequired
 };
-
-export default Nav;
