@@ -13,7 +13,7 @@ import {
 import pose from "react-pose";
 import styled from "styled-components";
 import Foreground from "../components/sections/foreground";
-import StyledBackgroundSection from "../components/sections/styledbackground"
+import StyledBackgroundSection from "../components/sections/styledbackground";
 import Footer from "../components/footer/footer";
 
 const articleProps = {
@@ -67,10 +67,11 @@ const StyledList = styled(List)`
 `;
 
 const StyledContent = styled(PageLayout.Content)`
-  max-width: 1220px;
-  margin: 0px auto;
+  margin: -2em auto 0px auto;
   width: 100%;
-  padding: 0px 4rem;
+  padding: 0px 2rem;
+  height: 100vh;
+  background-color: #4F5B66;
 `;
 
 const StyledHeading = styled(Heading)`
@@ -105,9 +106,7 @@ const IndexPage = ({ data }) => {
               })}
             </StyledList>
             <StyledBackgroundSection className="bgImage">
-              <StyledHeading size={1}>
-              Hello
-              </StyledHeading>
+              <StyledHeading size={1}>Hello</StyledHeading>
             </StyledBackgroundSection>
           </ColumnLayout>
         </RowLayout>
@@ -136,3 +135,6 @@ export const query = graphql`
 `;
 
 export default IndexPage;
+
+// Sources:
+// - https://www.gatsbyjs.org/starters/?v=2

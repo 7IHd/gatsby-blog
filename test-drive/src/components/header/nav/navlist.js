@@ -9,7 +9,7 @@ const StyledContact = styled.span`
   display: flex;
   height: 40px;
   color: #fff;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 18px;
   text-transform: uppercase;
   text-decoration: none;
@@ -21,7 +21,7 @@ const StyledNavLink = styled(Link)`
   display: flex;
   height: 40px;
   color: #fff;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 18px;
   text-transform: uppercase;
   text-decoration: none;
@@ -83,7 +83,10 @@ const navItemProps = {
   }
 };
 
-const NavItem = posed.li(navItemProps);
+const NavItem = styled(posed.li(navItemProps))`
+    display:inline-block;
+    margin-right: 2em;
+`;
 
 export default class NavList extends React.Component {
   constructor() {

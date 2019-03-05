@@ -6,12 +6,10 @@ import NavList from "./nav/navlist";
 import NavButton from "./nav/navbutton";
 
 const StyledHeader = styled(PageLayout.Header)`
-  max-width: 1220px;
   width: 100%;
   margin: 0px auto;
-  padding: 0px 4rem;
-  background: transparent;
-  padding-top: 60px;
+  padding: 0px 2rem;
+  padding-top: 2em;
 `;
 
 const StyledStackLayout = styled(StackLayout)`
