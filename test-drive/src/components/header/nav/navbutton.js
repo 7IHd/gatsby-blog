@@ -21,7 +21,6 @@ const StyledNavButton = styled(posed.button(navButtonProps))`
   outline: none;
   right: 5rem;
   top: 3.2rem;
-  z-index: 100;
   width: 34px;
   display: block;
   cursor: pointer;

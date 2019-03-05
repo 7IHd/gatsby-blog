@@ -3,17 +3,23 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Header from "../components/header/header";
 import { graphql, Link } from "gatsby";
-import { PageLayout, RowLayout, ColumnLayout, List } from "@auth0/cosmos";
-import SplitText from "react-pose-text";
-import styled from "styled-components";
+import {
+  PageLayout,
+  RowLayout,
+  ColumnLayout,
+  List,
+  Heading
+} from "@auth0/cosmos";
 import pose from "react-pose";
+import styled from "styled-components";
 import Foreground from "../components/sections/foreground";
+import StyledBackgroundSection from "../components/sections/styledbackground"
 import Footer from "../components/footer/footer";
 
 const articleProps = {
   hoverable: true,
   hover: {
-    x: 1,
+    y: -8,
     opacity: 0.8
   },
   enter: {
@@ -31,50 +37,45 @@ const articleProps = {
   }
 };
 
-const Article = styled(pose.div(articleProps))`
-  background-image: -webkit-repeating-radial-gradient(
-    center center,
-    rgba(158, 158, 158, 0.2),
-    rgba(158, 158, 158, 0.2) 1px,
-    transparent 1px,
-    transparent 100%
-  );
-  background-size: 6px 6px;
-  padding: 20px 20px;
-  margin-left: -20px;
-`;
-
-const charPoses = {
-  enter: {
-    opacity: 1
-  },
-  exit: {
-    opacity: 0
-  }
-};
+const Article = pose.div(articleProps);
 
 const StyledArticleLink = styled(Link)`
   color: #fff;
   text-transform: uppercase;
   font-family: "Roboto Cn", sans-serif;
-  font-weight: 300;
+  font-weight: 900;
   letter-spacing: 4px;
+  text-align: center;
   text-decoration: none;
   display: block;
   font-size: 0.7rem;
-  padding: 10px 10px;
-  background: #65737e;
+  padding: 30px 10px;
+  background-color: #65737e;
+  border-radius: 1rem;
 `;
 
 const StyledList = styled(List)`
-  background: transparent;
+  background-color: transparent;
+
+  > li {
+    border-top: 0px;
+  }
+
+  > li:hover {
+    background-color: transparent;
+  }
 `;
 
 const StyledContent = styled(PageLayout.Content)`
   max-width: 1220px;
   margin: 0px auto;
-  
+  width: 100%;
   padding: 0px 4rem;
+`;
+
+const StyledHeading = styled(Heading)`
+  font-style: italic;
+  color: #d8dee9;
 `;
 
 const IndexPage = ({ data }) => {
@@ -86,26 +87,28 @@ const IndexPage = ({ data }) => {
       <StyledContent>
         <RowLayout>
           <ColumnLayout gutter="small" distribution="1/3 1/3 1/3">
-            <div> Left</div>
+            <StyledHeading size={1}>Left</StyledHeading>
             <StyledList initialPose="exit" pose="enter">
               {edges.map(edge => {
                 const { frontmatter } = edge.node;
                 return (
                   <Article
-                    key={frontmatter.path}
+                    key={frontmatter.title}
                     initialPose="exit"
                     pose="enter"
                   >
                     <StyledArticleLink to={frontmatter.path}>
-                      <SplitText charPoses={charPoses}>
-                        {frontmatter.title}
-                      </SplitText>
+                      {frontmatter.title}
                     </StyledArticleLink>
                   </Article>
                 );
               })}
             </StyledList>
-            <div>Right</div>
+            <StyledBackgroundSection className="bgImage">
+              <StyledHeading size={1}>
+              Hello
+              </StyledHeading>
+            </StyledBackgroundSection>
           </ColumnLayout>
         </RowLayout>
         <Foreground />

@@ -5,7 +5,6 @@ import styled from "styled-components";
 const StyledFooter = styled.footer`
   border-top: 1px solid rgba(255, 255, 255, 0.90);
   padding: 30px 0;
-  color: rgba(0, 0, 0, 0.54);
   font-size: 14px;
   margin-top: 60px;
   margin-left: auto;
@@ -28,7 +27,7 @@ const StyledImg = styled.img`
 `;
 
 const StyledRowLayout = styled(RowLayout)`
-  margin: 0px auto;
+  margin: -70px auto 0px auto;
 `;
 
 export default class Footer extends React.Component {
@@ -42,7 +41,7 @@ export default class Footer extends React.Component {
               alt="avatar"
             />
           </Avatar>
-          <p>Text, text, text, text</p>
+          <p>Full Stack Software Engineer</p>
         </StyledRowLayout>
       </StyledFooter>
     );
