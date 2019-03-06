@@ -4,13 +4,7 @@ import { PageLayout, StackLayout } from "@auth0/cosmos";
 import Logo from "../logo/logo";
 import NavList from "./nav/navlist";
 import NavButton from "./nav/navbutton";
-
-const StyledHeader = styled(PageLayout.Header)`
-  width: 100%;
-  margin: 0px auto;
-  padding: 0px 2rem;
-  padding-top: 2em;
-`;
+import Headroom from "react-headroom";
 
 const StyledStackLayout = styled(StackLayout)`
   flex-wrap: nowrap;
@@ -31,7 +25,18 @@ export default class Header extends React.Component {
   render() {
     const { isNavActive } = this.state;
     return (
-      <StyledHeader>
+      <Headroom
+        style={{
+          width: "100%",
+          margin: "0px auto",
+          padding: "0px 2rem",
+          "padding-top": "2em",
+          "box-shadow":
+            "0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)",
+          "z-index": "20",
+          "background-color": "#1b2b34"
+        }}
+      >
         <StyledStackLayout
           gutter="none"
           alignment="start"
@@ -51,7 +56,7 @@ export default class Header extends React.Component {
             />
           </StyledStackLayout>
         </StyledStackLayout>
-      </StyledHeader>
+      </Headroom>
     );
   }
 }

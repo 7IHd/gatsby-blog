@@ -7,6 +7,7 @@ import {
   PageLayout,
   RowLayout,
   ColumnLayout,
+  StackLayout,
   List,
   Heading
 } from "@auth0/cosmos";
@@ -67,7 +68,7 @@ const StyledList = styled(List)`
 `;
 
 const StyledContent = styled(PageLayout.Content)`
-  margin: -2em auto 0px auto;
+  margin: -2.8em auto 0px auto;
   width: 100%;
   background-color: #4f5b66;
 `;
@@ -101,28 +102,28 @@ const IndexPage = ({ data }) => {
       <StyledContent>
         <StyledRowLayout gutter="none">
           <StyledBackgroundSection className="bgImage">
-          <StyledColumnLayout gutter="small" distribution="1/3 1/3 1/3">
-            <StyledHeading size={1}>Left</StyledHeading>
-            <StyledList initialPose="exit" pose="enter">
-              {edges.map(edge => {
-                const { frontmatter } = edge.node;
-                return (
-                  <Article
-                    key={frontmatter.title}
-                    initialPose="exit"
-                    pose="enter"
-                  >
-                    <StyledArticleLink to={frontmatter.path}>
-                      {frontmatter.title}
-                    </StyledArticleLink>
-                  </Article>
-                );
-              })}
-            </StyledList>
-              <StyledHeading size={1}>Hello</StyledHeading>
-          </StyledColumnLayout>
-        </StyledBackgroundSection>
-          <Foreground />
+            <StyledColumnLayout gutter="small" distribution="2/3 1/3">
+              <div/>
+              <StyledList initialPose="exit" pose="enter">
+                <StyledHeading size={3}>Recent Posts</StyledHeading>
+                {edges.map(edge => {
+                  const { frontmatter } = edge.node;
+                  return (
+                    <Article
+                      key={frontmatter.title}
+                      initialPose="exit"
+                      pose="enter"
+                    >
+                      <StyledArticleLink to={frontmatter.path}>
+                        {frontmatter.title}
+                      </StyledArticleLink>
+                    </Article>
+                  );
+                })}
+              </StyledList>
+            </StyledColumnLayout>
+          </StyledBackgroundSection>
+          {/*<Foreground />*/}
         </StyledRowLayout>
       </StyledContent>
       <Footer />

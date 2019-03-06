@@ -20,7 +20,7 @@ const BackgroundSection = ({ className, children }) => (
       query {
         softwareDesignImage: file(relativePath: { eq: "satellite.jpg" }) {
           childImageSharp {
-            fluid(duotone: { highlight: "#343D46", shadow: "#192550", opacity: 40 }, maxWidth: 1200) {
+            fluid(duotone: { highlight: "#343D46", shadow: "#343D46", opacity: 70 }, maxWidth: 1200) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -46,6 +46,7 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   width: 100%;
   height: 100%;
   z-index: 5;
+  padding: 0 2rem;
 `;
 
 export default StyledBackgroundSection;

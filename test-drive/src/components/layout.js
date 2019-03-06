@@ -5,10 +5,9 @@ import { PageLayout } from "@auth0/cosmos";
 import styled from "styled-components";
 
 const StyledPageLayout = styled(PageLayout)`
-  min-height: 100vh;
   overflow-x: hidden;
-  background-color: #1B2B34;
-  color: #D8DEE9;
+  background-color: #1b2b34;
+  color: #d8dee9;
   font-family: "Roboto Cn", sans-serif;
   font-weight: 400;
 `;
@@ -24,10 +23,7 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data =>
-      <StyledPageLayout>
-          {children}
-      </StyledPageLayout>}
+    render={data => <StyledPageLayout>{children}</StyledPageLayout>}
   />
 );
 
