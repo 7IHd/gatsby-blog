@@ -30,12 +30,12 @@ const navButtonBarProps = {
   visible: {
     rotate: 90,
     width: "20%",
-    height: "0.25em",
+    height: "4px",
     "border-radius": "50px"
   },
   hidden: {
     rotate: 0,
-    height: "0.05em",
+    height: "2px",
     width: "100%"
   }
 };

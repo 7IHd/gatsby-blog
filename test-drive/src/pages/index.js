@@ -50,8 +50,8 @@ const StyledArticleLink = styled(Link)`
   display: block;
   font-size: 0.7rem;
   padding: 30px 10px;
-  background-color: #65737e;
-  border-radius: 1rem;
+  border-radius: 10px;
+  border: 1px solid #fff;
 `;
 
 const StyledList = styled(List)`
@@ -69,9 +69,22 @@ const StyledList = styled(List)`
 const StyledContent = styled(PageLayout.Content)`
   margin: -2em auto 0px auto;
   width: 100%;
-  padding: 0px 2rem;
-  height: 100vh;
-  background-color: #4F5B66;
+  background-color: #4f5b66;
+`;
+
+const StyledRowLayout = styled(RowLayout)`
+  > div {
+    height: 100vh;
+  }
+  > div {
+    > div {
+      height: 100%;
+    }
+  }
+`;
+
+const StyledColumnLayout = styled(ColumnLayout)`
+  height: 100%;
 `;
 
 const StyledHeading = styled(Heading)`
@@ -86,8 +99,9 @@ const IndexPage = ({ data }) => {
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <Header />
       <StyledContent>
-        <RowLayout>
-          <ColumnLayout gutter="small" distribution="1/3 1/3 1/3">
+        <StyledRowLayout gutter="none">
+          <StyledBackgroundSection className="bgImage">
+          <StyledColumnLayout gutter="small" distribution="1/3 1/3 1/3">
             <StyledHeading size={1}>Left</StyledHeading>
             <StyledList initialPose="exit" pose="enter">
               {edges.map(edge => {
@@ -105,12 +119,11 @@ const IndexPage = ({ data }) => {
                 );
               })}
             </StyledList>
-            <StyledBackgroundSection className="bgImage">
               <StyledHeading size={1}>Hello</StyledHeading>
-            </StyledBackgroundSection>
-          </ColumnLayout>
-        </RowLayout>
-        <Foreground />
+          </StyledColumnLayout>
+        </StyledBackgroundSection>
+          <Foreground />
+        </StyledRowLayout>
       </StyledContent>
       <Footer />
     </Layout>

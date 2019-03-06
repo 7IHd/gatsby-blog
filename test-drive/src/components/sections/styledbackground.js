@@ -18,9 +18,9 @@ const BackgroundSection = ({ className, children }) => (
   <StaticQuery
     query={graphql`
       query {
-        softwareDesignImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
+        softwareDesignImage: file(relativePath: { eq: "satellite.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1200) {
+            fluid(duotone: { highlight: "#343D46", shadow: "#192550", opacity: 40 }, maxWidth: 1200) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -45,7 +45,7 @@ const BackgroundSection = ({ className, children }) => (
 const StyledBackgroundSection = styled(BackgroundSection)`
   width: 100%;
   height: 100%;
-  z-index: 100;
+  z-index: 5;
 `;
 
 export default StyledBackgroundSection;
