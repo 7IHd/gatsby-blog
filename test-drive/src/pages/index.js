@@ -123,7 +123,7 @@ const IndexPage = ({ data }) => {
               </StyledList>
             </StyledColumnLayout>
           </StyledBackgroundSection>
-          {/*<Foreground />*/}
+          <Foreground />
         </StyledRowLayout>
       </StyledContent>
       <Footer />

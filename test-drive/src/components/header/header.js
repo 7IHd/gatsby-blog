@@ -30,11 +30,11 @@ export default class Header extends React.Component {
           width: "100%",
           margin: "0px auto",
           padding: "0px 2rem",
-          "padding-top": "2em",
-          "box-shadow":
+          paddingTop: "2em",
+          boxShadow:
             "0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)",
-          "z-index": "20",
-          "background-color": "#1b2b34"
+          zIndex: "20",
+          backgroundColor: "#1b2b34"
         }}
       >
         <StyledStackLayout
