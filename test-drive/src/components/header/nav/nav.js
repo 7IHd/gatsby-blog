@@ -3,7 +3,7 @@ import { StackLayout } from "@auth0/cosmos";
 import NavList from "./navlist";
 import NavButton from "./navbutton";
 
-export default class Nav extends React.component {
+export default class Nav extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -28,3 +28,5 @@ export default class Nav extends React.component {
     );
   }
 }
+
+/* -_- React.component threw a bug that took me forever to figure out... */

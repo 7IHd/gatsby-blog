@@ -1,60 +1,20 @@
 import React from "react";
-import styled from "styled-components";
-import { PageLayout, StackLayout } from "@auth0/cosmos";
 import Logo from "../logo/logo";
-import NavList from "./nav/navlist";
-import NavButton from "./nav/navbutton";
+import Nav from "./nav/nav";
 import Headroom from "react-headroom";
-
-const StyledStackLayout = styled(StackLayout)`
-  flex-wrap: nowrap;
-`;
+import { StyledHeadroom_obj, StyledStackLayout } from "../styled-components";
 
 export default class Header extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      isNavActive: false
-    };
-  }
-
-  toggleNav = () => {
-    this.setState({ isNavActive: !this.state.isNavActive });
-  };
-
   render() {
-    const { isNavActive } = this.state;
     return (
-      <Headroom
-        style={{
-          width: "100%",
-          margin: "0px auto",
-          padding: "0px 2rem",
-          paddingTop: "2em",
-          boxShadow:
-            "0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)",
-          zIndex: "20",
-          backgroundColor: "#1b2b34"
-        }}
-      >
+      <Headroom style={StyledHeadroom_obj}>
         <StyledStackLayout
           gutter="none"
           alignment="start"
           distribution="spaceBetween"
         >
           <Logo />
-          <StyledStackLayout
-            gutter="none"
-            alignment="start"
-            distribution="spaceBetween"
-          >
-            {/*TODO Figure out why Nav component fails to compile...*/}
-            <NavList isNavActive={isNavActive} />
-            <NavButton
-              onNavButtonClick={this.toggleNav}
-              isNavActive={isNavActive}
-            />
-          </StyledStackLayout>
+          <Nav />
         </StyledStackLayout>
       </Headroom>
     );

@@ -1,16 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
-import { PageLayout } from "@auth0/cosmos";
-import styled from "styled-components";
-
-const StyledPageLayout = styled(PageLayout)`
-  overflow-x: hidden;
-  background-color: #1b2b34;
-  color: #d8dee9;
-  font-family: "Roboto Cn", sans-serif;
-  font-weight: 400;
-`;
+import { StyledPageLayout } from "./styled-components"
 
 const Layout = ({ children }) => (
   <StaticQuery

@@ -1,6 +1,5 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
 import BackgroundImage from "gatsby-background-image";
 
 /*
@@ -14,13 +13,16 @@ import BackgroundImage from "gatsby-background-image";
  * - `StaticQuery`: https://gatsby.app/staticquery
  */
 
-const BackgroundSection = ({ className, children }) => (
+const ParallaxImage = ({ className, children }) => (
   <StaticQuery
     query={graphql`
       query {
         softwareDesignImage: file(relativePath: { eq: "satellite.jpg" }) {
           childImageSharp {
-            fluid(duotone: { highlight: "#343D46", shadow: "#343D46", opacity: 70 }, maxWidth: 1200) {
+            fluid(
+              duotone: { highlight: "#343D46", shadow: "#343D46", opacity: 70 }
+              maxWidth: 1200
+            ) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -42,14 +44,9 @@ const BackgroundSection = ({ className, children }) => (
   />
 );
 
-const StyledBackgroundSection = styled(BackgroundSection)`
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-  padding: 0 2rem;
-`;
+// TODO insert dynamically generated data parallax here... note: static parallax is in styled-components
 
-export default StyledBackgroundSection;
+export { ParallaxImage };
 
 // Sources:
 // - https://github.com/gatsbyjs/gatsby/issues/2470
