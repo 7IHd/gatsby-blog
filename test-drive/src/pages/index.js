@@ -3,6 +3,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Header from "../components/header/header";
 import { graphql } from "gatsby";
+import { ColumnLayout } from "@auth0/cosmos";
 import Footer from "../components/footer/footer";
 import {
   StyledHeading,
@@ -11,7 +12,6 @@ import {
   StyledList,
   StyledContent,
   StyledRowLayout,
-  StyledColumnLayout,
   StyledParallaxImage,
   StyledParallax
 } from "../components/styled-components";
@@ -25,7 +25,10 @@ const IndexPage = ({ data }) => {
       <StyledContent>
         <StyledRowLayout gutter="none">
           <StyledParallaxImage className="bgImage">
-            <StyledColumnLayout gutter="small" distribution="2/3 1/3">
+            <ColumnLayout
+              gutter="small"
+              distribution="2/3 1/3"
+            >
               <div />
               <StyledList initialPose="exit" pose="enter">
                 <StyledHeading size={3} font-style="italic">
@@ -46,7 +49,7 @@ const IndexPage = ({ data }) => {
                   );
                 })}
               </StyledList>
-            </StyledColumnLayout>
+            </ColumnLayout>
           </StyledParallaxImage>
           <StyledParallax />
         </StyledRowLayout>
