@@ -1,17 +1,17 @@
 import React from "react";
-import { StyledNavButton, StyledNavButtonBar } from "../../styled-components";
+import { NavButton, NavButtonBar } from "./style";
 
-export default class NavButton extends React.Component {
+export default class extends React.Component {
   render() {
     return (
-      <StyledNavButton
+      <NavButton
         onClick={this.props.onNavButtonClick}
         pose={this.props.isNavActive ? "visible" : "hidden"}
       >
-        <StyledNavButtonBar />
-        <StyledNavButtonBar />
-        <StyledNavButtonBar />
-      </StyledNavButton>
+        <NavButtonBar />
+        <NavButtonBar />
+        <NavButtonBar />
+      </NavButton>
     );
   }
 }

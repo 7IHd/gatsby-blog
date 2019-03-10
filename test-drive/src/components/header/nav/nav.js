@@ -29,4 +29,4 @@ export default class Nav extends React.Component {
   }
 }
 
-/* -_- React.component threw a bug that took me forever to figure out... */
+/* TODO -_- React.component threw a bug that took me forever to figure out... */

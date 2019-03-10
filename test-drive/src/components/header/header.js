@@ -2,20 +2,21 @@ import React from "react";
 import Logo from "../logo/logo";
 import Nav from "./nav/nav";
 import Headroom from "react-headroom";
-import { StyledHeadroom_obj, StyledStackLayout } from "../styled-components";
+import { headroom } from "./style";
+import { Stack } from "../layout/style"
 
 export default class Header extends React.Component {
   render() {
     return (
-      <Headroom style={StyledHeadroom_obj}>
-        <StyledStackLayout
+      <Headroom style={headroom}>
+        <Stack
           gutter="none"
           alignment="start"
           distribution="spaceBetween"
         >
           <Logo />
           <Nav />
-        </StyledStackLayout>
+        </Stack>
       </Headroom>
     );
   }

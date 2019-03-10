@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { ThemeProvider } from "styled-components";
 import { StaticQuery, graphql } from "gatsby";
-import { StyledPageLayout } from "./styled-components"
+import { StyledPageLayout } from "../styled-components";
+import { theme } from "../theme";
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -14,7 +16,11 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => <StyledPageLayout>{children}</StyledPageLayout>}
+    render={data => (
+      <ThemeProvider theme={theme}>
+        <StyledPageLayout>{children}</StyledPageLayout>
+      </ThemeProvider>
+    )}
   />
 );
 

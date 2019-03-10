@@ -1,9 +1,9 @@
 import React from "react";
-import Layout from "../components/layout";
+import Layout from "../components/layout/layout";
 import SEO from "../components/seo";
 import Header from "../components/header/header";
 import { graphql } from "gatsby";
-import { ColumnLayout } from "@auth0/cosmos";
+import { Column } from "../components/layout/style";
 import Footer from "../components/footer/footer";
 import {
   StyledHeading,
@@ -11,10 +11,12 @@ import {
   StyledArticleLink,
   StyledList,
   StyledContent,
-  StyledRowLayout,
   StyledParallaxImage,
   StyledParallax
 } from "../components/styled-components";
+
+import { Row } from "../components/layout/style";
+import { Ghost } from "../components/button/ghost";
 
 const IndexPage = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
@@ -23,36 +25,23 @@ const IndexPage = ({ data }) => {
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <Header />
       <StyledContent>
-        <StyledRowLayout gutter="none">
+        <Row gutter="none">
           <StyledParallaxImage className="bgImage">
-            <ColumnLayout
-              gutter="small"
-              distribution="2/3 1/3"
-            >
+            <Column gutter="small" distribution="2/3 1/3">
               <div />
               <StyledList initialPose="exit" pose="enter">
                 <StyledHeading size={3} font-style="italic">
                   Recent Posts
                 </StyledHeading>
                 {edges.map(edge => {
-                  const { frontmatter } = edge.node;
-                  return (
-                    <StyledArticle
-                      key={frontmatter.title}
-                      initialPose="exit"
-                      pose="enter"
-                    >
-                      <StyledArticleLink to={frontmatter.path}>
-                        {frontmatter.title}
-                      </StyledArticleLink>
-                    </StyledArticle>
-                  );
+                  const { title, path } = edge.node.frontmatter;
+                  return <Ghost text={title} path={path} />;
                 })}
               </StyledList>
-            </ColumnLayout>
+            </Column>
           </StyledParallaxImage>
           <StyledParallax />
-        </StyledRowLayout>
+        </Row>
       </StyledContent>
       <Footer />
     </Layout>

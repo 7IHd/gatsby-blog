@@ -2,28 +2,21 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
 import ContactModal from "../../modal/contact";
-import {
-  StyledNavLink,
-  StyledContact,
-  StyledNavItem,
-  StyledNavList
-} from "../../styled-components";
+import { NavLink, Contact, NavItem, NavList } from "./style";
 
 function _getNavItems(data) {
   const navItemArray = [];
   data.allHeaderJson.edges.forEach(element =>
     navItemArray.push(
-      <StyledNavItem key={element.node.value}>
-        <StyledNavLink to={element.node.path}>
-          {element.node.value}
-        </StyledNavLink>
-      </StyledNavItem>
+      <NavItem key={element.node.value}>
+        <NavLink to={element.node.path}>{element.node.value}</NavLink>
+      </NavItem>
     )
   );
   return navItemArray;
 }
 
-export default class NavList extends React.Component {
+export default class extends React.Component {
   constructor() {
     super();
     this.state = { open: false };
@@ -52,15 +45,13 @@ export default class NavList extends React.Component {
           }
         `}
         render={data => (
-          <StyledNavList pose={isNavActive ? "visible" : "hidden"}>
+          <NavList pose={isNavActive ? "visible" : "hidden"}>
             <StaticQueryNavList data={data} />
-            <StyledNavItem>
-              <StyledContact onClick={this.setDialogState}>
-                Contact
-              </StyledContact>
-            </StyledNavItem>
+            <NavItem>
+              <Contact onClick={this.setDialogState}>Contact</Contact>
+            </NavItem>
             <ContactModal open={open} onContactClick={this.setDialogState} />
-          </StyledNavList>
+          </NavList>
         )}
       />
     );
