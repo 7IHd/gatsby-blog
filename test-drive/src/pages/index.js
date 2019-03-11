@@ -3,20 +3,12 @@ import Layout from "../components/layout/layout";
 import SEO from "../components/seo";
 import Header from "../components/header/header";
 import { graphql } from "gatsby";
-import { Column } from "../components/layout/style";
+import { ColumnLayout } from "@auth0/cosmos";
 import Footer from "../components/footer/footer";
-import {
-  StyledHeading,
-  StyledArticle,
-  StyledArticleLink,
-  StyledList,
-  StyledContent,
-  StyledParallaxImage,
-  StyledParallax
-} from "../components/styled-components";
-
-import { Row } from "../components/layout/style";
-import { Ghost } from "../components/button/ghost";
+import { Content, Row, ListColor } from "../components/layout/style";
+import { HeadingColor } from "../components/heading/style";
+import { ParallaxColor, ParallaxImage } from "../components/parallax/style";
+import Ghost from "../components/button/ghost";
 
 const IndexPage = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
@@ -24,25 +16,37 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <Header />
-      <StyledContent>
+      <Content>
         <Row gutter="none">
-          <StyledParallaxImage className="bgImage">
-            <Column gutter="small" distribution="2/3 1/3">
-              <div />
-              <StyledList initialPose="exit" pose="enter">
-                <StyledHeading size={3} font-style="italic">
+          <ParallaxImage className="bgImage">
+            <ColumnLayout
+              className="heroColumn"
+              gutter="small"
+              distribution="2/3 1/3"
+            >
+              <div className="leftHeroColumn" />
+              <ListColor
+                className="rightHeroColumn"
+                initialPose="exit"
+                pose="enter"
+              >
+                <HeadingColor
+                  className="rightHeroColumnHeading"
+                  size={3}
+                  font-style="italic"
+                >
                   Recent Posts
-                </StyledHeading>
+                </HeadingColor>
                 {edges.map(edge => {
                   const { title, path } = edge.node.frontmatter;
-                  return <Ghost text={title} path={path} />;
+                  return <Ghost key={title} text={title} path={path} />;
                 })}
-              </StyledList>
-            </Column>
-          </StyledParallaxImage>
-          <StyledParallax />
+              </ListColor>
+            </ColumnLayout>
+          </ParallaxImage>
+          <ParallaxColor />
         </Row>
-      </StyledContent>
+      </Content>
       <Footer />
     </Layout>
   );

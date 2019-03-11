@@ -13,7 +13,7 @@ import BackgroundImage from "gatsby-background-image";
  * - `StaticQuery`: https://gatsby.app/staticquery
  */
 
-const ParallaxImage = ({ className, children }) => (
+const ParallaxBackgroundImage = ({ className, children }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -46,7 +46,7 @@ const ParallaxImage = ({ className, children }) => (
 
 // TODO insert dynamically generated data parallax here... note: static parallax is in styled-components
 
-export { ParallaxImage };
+export { ParallaxBackgroundImage };
 
 // Sources:
 // - https://github.com/gatsbyjs/gatsby/issues/2470
