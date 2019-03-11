@@ -1,8 +1,8 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
-import ContactModal from "../../modal/contact";
-import { NavLink, Contact, NavItem, NavList } from "./style";
+import Contact from "../../modal/contact";
+import { NavLink, ContactLink, NavItem, NavList } from "./style";
 
 function _getNavItems(data) {
   const navItemArray = [];
@@ -48,9 +48,9 @@ export default class extends React.Component {
           <NavList pose={isNavActive ? "visible" : "hidden"}>
             <StaticQueryNavList data={data} />
             <NavItem>
-              <Contact onClick={this.setDialogState}>Contact</Contact>
+              <ContactLink onClick={this.setDialogState}>Contact</ContactLink>
             </NavItem>
-            <ContactModal open={open} onContactClick={this.setDialogState} />
+            <Contact open={open} onContactClick={this.setDialogState} />
           </NavList>
         )}
       />

@@ -30,11 +30,9 @@ const NavLink = styled(Link)`
   display: flex;
   height: 40px;
   color: ${props => props.theme.color.white.secondary};
-  font-weight: 400;
   font-size: 18px;
   text-transform: uppercase;
   text-decoration: none;
-  font-family: "Roboto Cn", sans-serif;
 `;
 
 const NavList = styled(posed.ul(navListProps))`
@@ -48,16 +46,14 @@ const NavItem = styled(posed.li(navItemProps))`
   margin-right: 2em;
 `;
 
-const Contact = styled.span`
+const ContactLink = styled.span`
   display: flex;
   height: 40px;
   color: ${props => props.theme.color.white.secondary};
-  font-weight: 400;
   font-size: 18px;
   text-transform: uppercase;
   text-decoration: none;
-  font-family: "Roboto Cn", sans-serif;
   cursor: pointer;
 `;
 
-export { NavList, NavItem, NavLink, NavButton, NavButtonBar, Contact };
+export { NavList, NavItem, NavLink, NavButton, NavButtonBar, ContactLink };

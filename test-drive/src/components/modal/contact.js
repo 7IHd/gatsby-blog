@@ -1,35 +1,36 @@
 import React from "react";
-import { Dialog, Button } from "@auth0/cosmos";
+import Ghost from "../button/ghost";
+import { Contact } from "./style";
 
-export default class ContactModal extends React.Component {
+export default class extends React.Component {
   render() {
     return (
-
-        <Dialog
-          open={this.props.open}
-          title="Example Dialog"
-          onClose={this.props.onContactClick}
-          actions={[
-            <Button
-              appearance="primary"
-              onClick={() => {
-                alert("You've performed the 'OK' action.");
-              }}
-            >
-              OK
-            </Button>,
-            <Button
-              appearance="secondary"
-              onClick={() => {
-                alert("You've performed the 'Cancel' action.");
-              }}
-            >
-              Cancel
-            </Button>
-          ]}
-        >
-          Are you sure?
-        </Dialog>
+      <Contact
+        open={this.props.open}
+        title="Example Dialog"
+        width="100%"
+        onClose={this.props.onContactClick}
+        actions={[
+          <Ghost
+            text="OK"
+            onClick={() => {
+              alert("You've performed the 'OK' action.");
+            }}
+          >
+            OK
+          </Ghost>,
+          <Ghost
+            text="Cancel"
+            onClick={() => {
+              alert("You've performed the 'Cancel' action.");
+            }}
+          >
+            Cancel
+          </Ghost>
+        ]}
+      >
+        Are you sure?
+      </Contact>
     );
   }
 }

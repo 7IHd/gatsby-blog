@@ -8,9 +8,6 @@ const GhostButton = styled(posed.div(ghostProps))``;
 const GhostButtonLink = styled(Link)`
   color: ${props => props.theme.color.white.secondary};
   text-transform: uppercase;
-  font-family: "Roboto Cn", sans-serif;
-  font-weight: 900;
-  letter-spacing: 4px;
   text-align: center;
   text-decoration: none;
   display: block;

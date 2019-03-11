@@ -5,8 +5,6 @@ const Page = styled(PageLayout)`
   overflow-x: hidden;
   background-color: ${props => props.theme.color.black.primary};
   color: ${props => props.theme.color.white.secondary};
-  font-family: "Roboto Cn", sans-serif;
-  font-weight: 400;
 `;
 
 const Content = styled(PageLayout.Content)`
