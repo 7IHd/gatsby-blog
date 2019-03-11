@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { RowLayout } from "@auth0/cosmos";
 
 const Footer = styled.footer`
-  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  border-top: 1px solid ${props => props.theme.color.white.secondary};
   padding: 30px 0;
   font-size: 14px;
   margin-top: 60px;

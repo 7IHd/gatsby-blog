@@ -3,7 +3,7 @@ import { Heading } from "@auth0/cosmos";
 
 const HeadingColor = styled(Heading)`
   font-style: ${props => (props.fontStyle ? props.fontStyle : "normal")};
-  color: #d8dee9;
+  color: ${props => props.theme.color.white.secondary};
 `;
 
 export { HeadingColor };

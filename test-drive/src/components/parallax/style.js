@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { ParallaxBackgroundImage } from "./parallax";
 
 const ParallaxColor = styled.div`
-  background-color: #65737e;
+  background-color: ${props => props.theme.color.darkGray.secondary};
   height: 100vh;
-  color: #1b2b34;
+  color: ${props => props.theme.color.black.primary};
 `;
 
 const ParallaxImage = styled(ParallaxBackgroundImage)`

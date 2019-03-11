@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 const GhostButton = styled(posed.div(ghostProps))``;
 
 const GhostButtonLink = styled(Link)`
-  color: #fff;
+  color: ${props => props.theme.color.white.secondary};
   text-transform: uppercase;
   font-family: "Roboto Cn", sans-serif;
   font-weight: 900;
@@ -17,7 +17,7 @@ const GhostButtonLink = styled(Link)`
   font-size: 0.7rem;
   padding: 30px 10px;
   border-radius: 10px;
-  border: 1px solid #fff;
+  border: 1px solid ${props => props.theme.color.white.secondary};
 `;
 
 export { GhostButton, GhostButtonLink };

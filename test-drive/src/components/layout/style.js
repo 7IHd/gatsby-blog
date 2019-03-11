@@ -3,8 +3,8 @@ import { List, PageLayout, RowLayout, StackLayout } from "@auth0/cosmos";
 
 const Page = styled(PageLayout)`
   overflow-x: hidden;
-  background-color: #1b2b34;
-  color: #d8dee9;
+  background-color: ${props => props.theme.color.black.primary};
+  color: ${props => props.theme.color.white.secondary};
   font-family: "Roboto Cn", sans-serif;
   font-weight: 400;
 `;
@@ -12,7 +12,7 @@ const Page = styled(PageLayout)`
 const Content = styled(PageLayout.Content)`
   margin: -2.8em auto 0px auto;
   width: 100%;
-  background-color: #4f5b66;
+  background-color: ${props => props.theme.color.darkGray.primary};
 `;
 
 const Stack = styled(StackLayout)`
