@@ -1,4 +1,4 @@
-import { theme } from "../theme";
+import { theme } from "core/theme";
 
 const headroom = {
   width: "100%",

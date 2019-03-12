@@ -1,9 +1,9 @@
 import React from "react";
-import Logo from "../logo/logo";
+import Logo from "atoms/logo/logo";
 import Nav from "./nav/nav";
 import Headroom from "react-headroom";
 import { headroom } from "./style";
-import { Stack } from "../layout/style"
+import { Stack } from "layout/style"
 
 export default class Header extends React.Component {
   render() {

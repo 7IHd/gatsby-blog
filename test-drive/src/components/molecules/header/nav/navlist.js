@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
-import Contact from "../../modal/contact";
+import Contact from "molecules/modal/contact";
 import { NavLink, ContactLink, NavItem, NavList } from "./style";
 
 function _getNavItems(data) {

@@ -14,6 +14,29 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
           __dirname,
           "node_modules",
           "styled-components"
+        ),
+        "molecules": path.resolve(
+          __dirname,
+          "src",
+          "components",
+          "molecules"
+        ),
+        "atoms": path.resolve(
+          __dirname,
+          "src",
+          "components",
+          "atoms"
+        ),
+        "layout": path.resolve(
+          __dirname,
+          "src",
+          "components",
+          "layout"
+        ),
+        "core": path.resolve(
+          __dirname,
+          "src",
+          "components"
         )
       }
     }

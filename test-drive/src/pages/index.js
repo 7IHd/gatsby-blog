@@ -1,14 +1,14 @@
 import React from "react";
-import Layout from "../components/layout/layout";
-import SEO from "../components/seo";
-import Header from "../components/header/header";
 import { graphql } from "gatsby";
 import { ColumnLayout } from "@auth0/cosmos";
-import Footer from "../components/footer/footer";
-import { Content, Row, ListColor } from "../components/layout/style";
-import { HeadingColor } from "../components/heading/style";
-import { ParallaxColor, ParallaxImage } from "../components/parallax/style";
-import Ghost from "../components/button/ghost";
+import SEO from "core/seo";
+import Layout from "layout/layout";
+import { Content, Row, ListColor } from "layout/style";
+import { ParallaxColor, ParallaxImage } from "molecules/parallax/style";
+import Header from "molecules/header/header";
+import Footer from "molecules/footer/footer";
+import { HeadingColor } from "atoms/heading/style";
+import Ghost from "atoms/button/ghost";
 
 const IndexPage = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
