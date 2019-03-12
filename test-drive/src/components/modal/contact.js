@@ -1,32 +1,18 @@
 import React from "react";
-import Ghost from "../button/ghost";
+import Submit from "../button/submit";
+import { Button } from "@auth0/cosmos";
 import { Contact } from "./style";
 
 export default class extends React.Component {
   render() {
+    const { open, loading, success, onSubmitClick, onCloseClick } = this.props;
     return (
       <Contact
-        open={this.props.open}
-        title="Example Dialog"
-        width="100%"
-        onClose={this.props.onContactClick}
+        open={open}
+        title="Contact"
+        onClose={onCloseClick}
         actions={[
-          <Ghost
-            text="OK"
-            onClick={() => {
-              alert("You've performed the 'OK' action.");
-            }}
-          >
-            OK
-          </Ghost>,
-          <Ghost
-            text="Cancel"
-            onClick={() => {
-              alert("You've performed the 'Cancel' action.");
-            }}
-          >
-            Cancel
-          </Ghost>
+          <Button loading={loading} success={success} onClick={onSubmitClick} />
         ]}
       >
         Are you sure?

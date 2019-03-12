@@ -19,16 +19,37 @@ function _getNavItems(data) {
 export default class extends React.Component {
   constructor() {
     super();
-    this.state = { open: false };
+    this.state = {
+      open: false,
+      loading: false,
+      success: false
+    };
   }
 
-  setDialogState = () => {
+  setContactState = () => {
     this.setState({ open: !this.state.open });
+  };
+
+  setSubmitState = () => {
+    const dis = this;
+    dis.setState({
+      loading: true
+    });
+
+
+
+    setTimeout(function() {
+      dis.setState({
+        loading: false,
+        success: true
+      });
+      alert("You've performed the 'OK' action.");
+    }, 3000);
   };
 
   render() {
     const { isNavActive } = this.props,
-      { open } = this.state;
+      { open, loading, success } = this.state;
 
     return (
       <StaticQuery
@@ -48,9 +69,15 @@ export default class extends React.Component {
           <NavList pose={isNavActive ? "visible" : "hidden"}>
             <StaticQueryNavList data={data} />
             <NavItem>
-              <ContactLink onClick={this.setDialogState}>Contact</ContactLink>
+              <ContactLink onClick={this.setContactState}>Contact</ContactLink>
             </NavItem>
-            <Contact open={open} onContactClick={this.setDialogState} />
+            <Contact
+              open={open}
+              loading={loading}
+              success={success}
+              onCloseClick={this.setContactState}
+              onSubmitClick={this.setSubmitState}
+            />
           </NavList>
         )}
       />
