@@ -1,17 +1,16 @@
 import styled from "styled-components";
-import { ParallaxBackgroundImage } from "./parallax";
+import BackgroundImage from "gatsby-background-image";
 
-const ParallaxColor = styled.div`
-  background-color: ${props => props.theme.color.darkGray.secondary};
-  height: 100vh;
-  color: ${props => props.theme.color.black.primary};
+const style = ["height: 100vh", "z-index: 5", "padding: 0 2rem"];
+
+const ParallaxImage = styled(BackgroundImage)`
+  ${style.join("; ")}
 `;
 
-const ParallaxImage = styled(ParallaxBackgroundImage)`
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-  padding: 0 2rem;
+const ParallaxColor = styled.div`
+  background-color: ${props => props.backgroundColor};
+  color: ${props => props.theme.color.black.primary};
+  ${style.join("; ")}
 `;
 
 export { ParallaxColor, ParallaxImage };

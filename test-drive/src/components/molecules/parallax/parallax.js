@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
+import { ParallaxImage, ParallaxColor } from "./style";
+import { Row } from "layout/style";
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -13,15 +14,16 @@ import BackgroundImage from "gatsby-background-image";
  * - `StaticQuery`: https://gatsby.app/staticquery
  */
 
-const ParallaxBackgroundImage = ({ className, children }) => (
+const ParallaxSatellite = ({ className, children }) => (
   <StaticQuery
     query={graphql`
       query {
-        softwareDesignImage: file(relativePath: { eq: "satellite.jpg" }) {
+        satelliteImage: file(relativePath: { eq: "satellite.jpg" }) {
           childImageSharp {
             fluid(
-              duotone: { highlight: "#343D46", shadow: "#343D46", opacity: 70 }
-              maxWidth: 1200
+              duotone: { highlight: "#0ec4f1", shadow: "#6699CC", opacity: 35 }
+              maxWidth: 1800
+              cropFocus: WEST
             ) {
               ...GatsbyImageSharpFluid
             }
@@ -30,23 +32,43 @@ const ParallaxBackgroundImage = ({ className, children }) => (
       }
     `}
     render={data => {
-      const imageData = data.softwareDesignImage.childImageSharp.fluid;
+      const { fluid } = data.satelliteImage.childImageSharp;
+
       return (
-        <BackgroundImage
-          className={className}
-          fluid={imageData}
-          backgroundColor={`#040e18`}
-        >
+        <ParallaxImage className={className} fluid={fluid} children={children}>
           {children}
-        </BackgroundImage>
+        </ParallaxImage>
       );
     }}
   />
 );
 
-// TODO insert dynamically generated data parallax here... note: static parallax is in styled-components
+const ParallaxType = function({ className, fluid, backgroundColor, children }) {
+  return !!backgroundColor ? (
+    <ParallaxColor className={className} backgroundColor={backgroundColor}>
+      {children}
+    </ParallaxColor>
+  ) : (
+    <ParallaxSatellite
+      className={className}
+      fluid={fluid}
+      children={children}
+    />
+  );
+};
 
-export { ParallaxBackgroundImage };
+export default class Parallax extends React.Component {
+  render() {
+    const { props } = this;
+    return (
+      <Row gutter="none">
+        <ParallaxType {...props} />
+      </Row>
+    );
+  }
+}
+
+export { Parallax };
 
 // Sources:
 // - https://github.com/gatsbyjs/gatsby/issues/2470

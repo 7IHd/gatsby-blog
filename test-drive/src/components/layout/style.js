@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { List, PageLayout, RowLayout, StackLayout } from "@auth0/cosmos";
+import {
+  List,
+  PageLayout,
+  RowLayout,
+  StackLayout,
+  Paragraph
+} from "@auth0/cosmos";
 
 const Page = styled(PageLayout)`
   overflow-x: hidden;
@@ -8,24 +14,18 @@ const Page = styled(PageLayout)`
 `;
 
 const Content = styled(PageLayout.Content)`
-  margin: -2.8em auto 0px auto;
+  margin-top: -2.8em;
   width: 100%;
   background-color: ${props => props.theme.color.darkGray.primary};
 `;
 
 const Stack = styled(StackLayout)`
   flex-wrap: nowrap;
+  height: 100%;
 `;
 
 const Row = styled(RowLayout)`
-  > div {
-    height: 100vh;
-  }
-  > div {
-    > div {
-      height: 100%;
-    }
-  }
+  height: 100vh;
 `;
 
 const ListColor = styled(List)`
@@ -40,4 +40,11 @@ const ListColor = styled(List)`
   }
 `;
 
-export { Page, Content, Stack, Row, ListColor };
+const Card = styled.div`
+  background-color: ${props => props.theme.color.darkGray.secondary};
+  color: ${props => props.theme.color.white.secondary};
+  padding: 2em;
+  border-radius: 10px;
+`;
+
+export { Page, Content, Stack, Row, ListColor, Card };

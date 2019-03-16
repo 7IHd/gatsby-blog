@@ -2,14 +2,13 @@ import styled from "styled-components";
 import { RowLayout } from "@auth0/cosmos";
 
 const Footer = styled.footer`
-  border-top: 1px solid ${props => props.theme.color.white.secondary};
+  border-top: 1px solid ${props => props.theme.color.darkGray.primary};
   padding: 30px 0;
   font-size: 14px;
   margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  max-width: 1220px;
   width: 100%;
 `;
 

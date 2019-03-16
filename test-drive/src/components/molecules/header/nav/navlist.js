@@ -36,14 +36,11 @@ export default class extends React.Component {
       loading: true
     });
 
-
-
     setTimeout(function() {
       dis.setState({
         loading: false,
         success: true
       });
-      alert("You've performed the 'OK' action.");
     }, 3000);
   };
 
