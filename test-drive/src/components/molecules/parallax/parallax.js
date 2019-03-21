@@ -60,11 +60,7 @@ const ParallaxType = function({ className, fluid, backgroundColor, children }) {
 export default class Parallax extends React.Component {
   render() {
     const { props } = this;
-    return (
-      <Row gutter="none">
-        <ParallaxType {...props} />
-      </Row>
-    );
+    return <ParallaxType {...props} />;
   }
 }
 

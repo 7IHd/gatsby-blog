@@ -4,10 +4,11 @@ import {
   PageLayout,
   RowLayout,
   StackLayout,
+  GalleryLayout,
   Paragraph
 } from "@auth0/cosmos";
 
-const Page = styled(PageLayout)`
+const Page = styled.div`
   overflow-x: hidden;
   background-color: ${props => props.theme.color.black.primary};
   color: ${props => props.theme.color.white.secondary};
@@ -20,8 +21,13 @@ const Content = styled(PageLayout.Content)`
 `;
 
 const Stack = styled(StackLayout)`
-  flex-wrap: nowrap;
   height: 100%;
+`;
+
+const Gallery = styled(GalleryLayout)`
+  min-height: 100vh;
+  overflow: hidden;
+  width: 100%;
 `;
 
 const Row = styled(RowLayout)`
@@ -45,6 +51,8 @@ const Card = styled.div`
   color: ${props => props.theme.color.white.secondary};
   padding: 2em;
   border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  position: relative;
 `;
 
-export { Page, Content, Stack, Row, ListColor, Card };
+export { Page, Content, Stack, Row, ListColor, Card, Gallery };

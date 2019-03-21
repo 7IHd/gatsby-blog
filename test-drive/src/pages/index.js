@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { ColumnLayout, RowLayout } from "@auth0/cosmos";
 import SEO from "core/seo";
 import Layout from "layout/layout";
 import { Content, ListColor, Card, Stack } from "layout/style";
+import { Gallery } from "layout/style";
 import { Parallax } from "molecules/parallax/parallax";
 import Header from "molecules/header/header";
 import Footer from "molecules/footer/footer";
@@ -27,55 +27,49 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <Header />
-      <Content>
-        <Parallax className="firstOne">
-          <Stack gutter="medium" alignment="center" distribution="center">
-            <ColumnLayout
-              className="heroColumn"
-              gutter="small"
-              distribution="2/3 1/3"
+      <Parallax className="firstOne">
+        {/*The size property needs to be media dependent*/}
+
+        <Gallery>
+          <Card className="leftHeroColumn" initialPose="exit" pose="enter">
+            <HeadingColor
+              className="rightHeroColumnHeading"
+              size={1}
+              font-style="italic"
             >
-              <Card className="leftHeroColumn" initialPose="exit" pose="enter">
-                <HeadingColor
-                  className="rightHeroColumnHeading"
-                  size={1}
-                  font-style="italic"
-                >
-                  Recent Posts
-                </HeadingColor>
-                <div dangerouslySetInnerHTML={{ __html: extractedHtml[0] }} />
-              </Card>
-              <Card className="rightHeroColumn" initialPose="exit" pose="enter">
-                <HeadingColor
-                  className="rightHeroColumnHeading"
-                  size={1}
-                  font-style="italic"
-                >
-                  Recent Posts
-                </HeadingColor>
-                <div dangerouslySetInnerHTML={{ __html: extractedHtml[0] }} />
-              </Card>
-            </ColumnLayout>
-          </Stack>
-        </Parallax>
-        <Parallax
-          className="secondOne"
-          backgroundColor={props => props.theme.color.darkGray.primary}
-        >
-          <Stack gutter="medium" alignment="center" distribution="center">
-            <Card className="rightHeroColumn" initialPose="exit" pose="enter">
-              <HeadingColor
-                className="rightHeroColumnHeading"
-                size={1}
-                font-style="italic"
-              >
-                Recent Posts
-              </HeadingColor>
-              <div dangerouslySetInnerHTML={{ __html: extractedHtml[0] }} />
-            </Card>
-          </Stack>
-        </Parallax>
-      </Content>
+              Recent Posts
+            </HeadingColor>
+            <div dangerouslySetInnerHTML={{ __html: extractedHtml[0] }} />
+          </Card>
+        </Gallery>
+      </Parallax>
+      <Parallax
+        className="secondOne"
+        backgroundColor={props => props.theme.color.darkGray.primary}
+      >
+        <Gallery>
+          <Card className="rightHeroColumn" initialPose="exit" pose="enter">
+            <HeadingColor
+              className="rightHeroColumnHeading"
+              size={1}
+              font-style="italic"
+            >
+              Recent Posts
+            </HeadingColor>
+            <div dangerouslySetInnerHTML={{ __html: extractedHtml[0] }} />
+          </Card>
+          <Card className="rightHeroColumn2" initialPose="exit" pose="enter">
+            <HeadingColor
+              className="rightHeroColumnHeading"
+              size={1}
+              font-style="italic"
+            >
+              Recent Posts
+            </HeadingColor>
+            <div dangerouslySetInnerHTML={{ __html: extractedHtml[0] }} />
+          </Card>
+        </Gallery>
+      </Parallax>
       <Footer />
     </Layout>
   );
