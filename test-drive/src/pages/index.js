@@ -5,6 +5,7 @@ import Layout from "layout/layout";
 import { Content, ListColor, Card, Stack } from "layout/style";
 import { Gallery } from "layout/style";
 import { Parallax } from "molecules/parallax/parallax";
+import Resume from "molecules/table/resume";
 import Header from "molecules/header/header";
 import Footer from "molecules/footer/footer";
 import { HeadingColor } from "atoms/heading/style";
@@ -39,7 +40,7 @@ const IndexPage = ({ data }) => {
             >
               Recent Posts
             </HeadingColor>
-            <div dangerouslySetInnerHTML={{ __html: extractedHtml[0] }} />
+            <div dangerouslySetInnerHTML={{ __html: extractedHtml }} />
           </Card>
         </Gallery>
       </Parallax>
@@ -47,28 +48,7 @@ const IndexPage = ({ data }) => {
         className="secondOne"
         backgroundColor={props => props.theme.color.darkGray.primary}
       >
-        <Gallery>
-          <Card className="rightHeroColumn" initialPose="exit" pose="enter">
-            <HeadingColor
-              className="rightHeroColumnHeading"
-              size={1}
-              font-style="italic"
-            >
-              Recent Posts
-            </HeadingColor>
-            <div dangerouslySetInnerHTML={{ __html: extractedHtml[0] }} />
-          </Card>
-          <Card className="rightHeroColumn2" initialPose="exit" pose="enter">
-            <HeadingColor
-              className="rightHeroColumnHeading"
-              size={1}
-              font-style="italic"
-            >
-              Recent Posts
-            </HeadingColor>
-            <div dangerouslySetInnerHTML={{ __html: extractedHtml[0] }} />
-          </Card>
-        </Gallery>
+        <Resume />
       </Parallax>
       <Footer />
     </Layout>
