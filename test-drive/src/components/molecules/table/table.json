@@ -1,34 +1,34 @@
 [
-  {
-    "resume": {
-      "experience": [
-        {
-          "id": "experienceCubic",
-          "title": "Software Engineer",
-          "company": "Cubic Corporation / TeraLogics",
-          "description": "Engineering solutions for video processing, processing geospatial metadata, capturing metrics, auditing user activity, data modeling, and providing product support relative to research and sustainment.",
-          "date": "Sept 2017 - Present"
-        },
-        {
-          "id": "experienceEnterworks",
-          "title": "Software Engineer",
-          "company": "Enterworks",
-          "description": "Building workflow engines for data governance processes, building data models, and providing product support relative to research and sustainment.",
-          "date": "Aug 2015 - Aug 2017"
-        }
-      ],
-      "education": [
-        {
-          "college": "George Mason University",
-          "degree": "Bachelor of Science, Information Technology (Database Technology, Web Development, and Programming)",
-          "date": "Jan 2015 - Dec 2016"
-        },
-        {
-          "college": "Northern Virginia Community College",
-          "degree": "Associate of Science, Computer Science",
-          "date": "Sept 2012 - Dec 2014"
-        }
-      ]
-    }
-  }
+  ["Experience", null, null, null],
+  [
+    "Software Engineer",
+    "Cubic Corporation / TeraLogics",
+    "Engineering solutions for video processing, processing geospatial metadata, capturing metrics, auditing user activity, data modeling, and providing product support relative to research and sustainment.",
+    null
+  ],
+  ["Sept 2017 - Present", null, null, null],
+  [null, null, null, null],
+  [
+    "Software Engineer",
+    "Enterworks",
+    "Building workflow engines for data governance processes, building data models, and providing product support relative to research and sustainment.",
+    null
+  ],
+  ["Aug 2015 - Aug 2017", null, null, null],
+  ["Education", null, null, null],
+  [
+    "George Mason University",
+    "Bachelor of Science, Information Technology (Database Technology, Web Development, and Programming)",
+    null,
+    null
+  ],
+  ["Jan 2015 - Dec 2016", null, null, null],
+  [null, null, null, null],
+  [
+    "Northern Virginia Community College",
+    "Associate of Science, Computer Science",
+    null,
+    null
+  ],
+  ["Sept 2012 - Dec 2014", null, null, null]
 ]
