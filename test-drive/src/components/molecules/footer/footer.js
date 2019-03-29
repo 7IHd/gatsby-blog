@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "@auth0/cosmos";
 import { Footer, FooterRow, Avatar, AvatarImg } from "./style";
 
 export default class extends React.Component {
@@ -12,7 +13,11 @@ export default class extends React.Component {
               alt="avatar"
             />
           </Avatar>
-          <p>Full Stack Software Engineer</p>
+          <p>
+            Full Stack Developer{" "}
+            <Icon name="mail" size="20" color="white" /> Gmail{" "}
+            <Icon name="brand-linkedin" size="20" color="white" /> Phil Ramirez
+          </p>
         </FooterRow>
       </Footer>
     );

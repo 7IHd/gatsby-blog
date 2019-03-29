@@ -5,6 +5,7 @@ import {
   RowLayout,
   StackLayout,
   GalleryLayout,
+  ColumnLayout,
   Paragraph
 } from "@auth0/cosmos";
 
