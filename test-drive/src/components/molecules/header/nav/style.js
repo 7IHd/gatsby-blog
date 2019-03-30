@@ -12,9 +12,9 @@ const NavButton = styled(posed.button(navButtonProps))`
   background-color: transparent;
   border-style: none;
   outline: none;
-  right: 5rem;
-  top: 3.2rem;
-  width: 34px;
+  right: 2rem;
+  top: 2.2rem;
+  width: 2.75rem;
   display: block;
   cursor: pointer;
 `;
@@ -23,7 +23,7 @@ const NavButtonBar = styled(posed.span(navButtonBarProps))`
   display: block;
   background-color: ${props => props.theme.color.white.secondary};
   cursor: pointer;
-  margin-bottom: 6px;
+  margin-bottom: .5rem;
 `;
 
 const NavLink = styled(Link)`

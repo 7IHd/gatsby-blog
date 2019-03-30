@@ -20,6 +20,14 @@ const ParallaxColor = styled.div`
   background-color: ${props => props.backgroundColor};
   color: ${props => props.theme.color.black.primary};
   ${style.join("; ")}
+  > svg {
+    position: absolute;
+    z-index: 10;
+    opacity: 0.2;
+  }
+  > div {
+    z-index: 11;
+  }
 `;
 
 export { ParallaxColor, ParallaxImage };

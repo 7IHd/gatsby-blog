@@ -23,12 +23,17 @@ const Content = styled(PageLayout.Content)`
 
 const Stack = styled(StackLayout)`
   height: 100%;
+  width: 100%;
+  margin: auto;
 `;
 
 const Gallery = styled(GalleryLayout)`
   min-height: 100vh;
   overflow: hidden;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Row = styled(RowLayout)`
@@ -48,12 +53,13 @@ const ListColor = styled(List)`
 `;
 
 const Card = styled.div`
-  background-color: ${props => props.theme.color.darkGray.secondary};
-  color: ${props => props.theme.color.white.secondary};
+  background-color: ${props => props.theme.color.white.secondary};
+  color: ${props => props.theme.color.darkGray.primary};
   padding: 2em;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   position: relative;
+  margin: 1em auto;
 `;
 
 export { Page, Content, Stack, Row, ListColor, Card, Gallery };

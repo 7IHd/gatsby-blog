@@ -8,4 +8,9 @@ const Resume = styled.div`
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 `;
 
-export { Resume };
+const Table = styled.div`
+  margin: auto;
+  padding: 1em 0em;
+`;
+
+export { Resume, Table };

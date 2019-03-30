@@ -3,7 +3,7 @@ import { RowLayout } from "@auth0/cosmos";
 
 const Footer = styled.footer`
   border-top: 1px solid ${props => props.theme.color.darkGray.primary};
-  padding: 30px 0;
+  padding: 30px 1em;
   font-size: 14px;
   margin-top: 60px;
   margin-left: auto;
@@ -18,6 +18,7 @@ const FooterRow = styled(RowLayout)`
 
 const Avatar = styled.div`
   margin: -70px 0 15px 0;
+  z-index: 24;
 `;
 
 const AvatarImg = styled.img`
