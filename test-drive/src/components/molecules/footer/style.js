@@ -16,17 +16,4 @@ const FooterRow = styled(RowLayout)`
   margin: -70px auto 0px auto;
 `;
 
-const Avatar = styled.div`
-  margin: -70px 0 15px 0;
-  z-index: 24;
-`;
-
-const AvatarImg = styled.img`
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
-  margin: 0;
-  display: inline;
-`;
-
-export { Footer, FooterRow, Avatar, AvatarImg };
+export { Footer, FooterRow };

@@ -60,6 +60,10 @@ const Card = styled.div`
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   position: relative;
   margin: 1em auto;
+  
+  div:first-child {
+  text-align: center;
+  }
 `;
 
 export { Page, Content, Stack, Row, ListColor, Card, Gallery };

@@ -10,6 +10,7 @@ import Header from "molecules/header/header";
 import Footer from "molecules/footer/footer";
 import { HeadingColor } from "atoms/heading/style";
 import { Heading } from "@auth0/cosmos";
+import { Avatar, AvatarImg } from "atoms/avatar/avatar";
 
 import * as R from "ramda";
 
@@ -34,6 +35,12 @@ const IndexPage = ({ data }) => {
         {/*The size property needs to be media dependent*/}
         <Gallery gutter="large" size="medium">
           <Card className="leftHeroCard" initialPose="exit" pose="enter">
+            <Avatar>
+              <AvatarImg
+                  src="https://avatars2.githubusercontent.com/u/13524654?v=3&s=460"
+                  alt="avatar"
+              />
+            </Avatar>
             <Heading size={2}>Phil Ramirez</Heading>
             <Heading size={3}>Full Stack Developer</Heading>
           </Card>
